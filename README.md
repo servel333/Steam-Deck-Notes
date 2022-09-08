@@ -17,3 +17,5 @@ Steam Deck ([Official site](https://store.steampowered.com/steamdeck))
   - [Plugin DB](https://github.com/SteamDeckHomebrew/decky-plugin-database)
 
 ## Games
+
+- [Monster Hunter Rise](/games/Monster-Hunter-Rise.md)
