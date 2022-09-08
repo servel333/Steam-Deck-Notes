@@ -1,5 +1,23 @@
 
-Installing on the Steam Deck is tricky.
+## Installing
+
+Disable the filesystem read-only mode
+
+```
+sudo steamos-readonly disable
+```
+
+Install
+
+```
+sudo pacman -S gameconqueror
+```
+
+And for safety, enable read-only mode again
+
+```
+sudo steamos-readonly enable
+```
 
 ## Troubleshooting
 
