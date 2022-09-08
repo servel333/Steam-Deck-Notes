@@ -16,6 +16,7 @@ Steam Deck ([Official site](https://store.steampowered.com/steamdeck))
 - Bottle - [Notes](/tools/Bottle.md)
 - [Decky](https://github.com/SteamDeckHomebrew/decky-loader) - Adds a menu that can install plugins that add functionality.
   - [Plugin DB](https://github.com/SteamDeckHomebrew/decky-plugin-database)
+- EmuDeck - [Notes](tools/EmuDeck.md)
 
 ## Games
 
