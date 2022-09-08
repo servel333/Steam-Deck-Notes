@@ -20,7 +20,7 @@ Steam Deck ([Official site](https://store.steampowered.com/steamdeck))
 - GameConqueror - ([Notes](/tools/GameConqueror.md)) - Like Cheat Engine but Linux native.
 - Pacman - ([Notes](/tools/Pacman.md)) - Package manager built into Arch (used to install software).
   - [docs wiki](https://wiki.archlinux.org/title/pacman)
-- [SteamTinkerLaunch](https://github.com/frostworx/steamtinkerlaunch) - Another launcher
+- [SteamTinkerLaunch](https://github.com/frostworx/steamtinkerlaunch) - A tweak tool
 
 ## Games
 
