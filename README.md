@@ -21,3 +21,7 @@ Steam Deck ([Official site](https://store.steampowered.com/steamdeck))
 ## Games
 
 - [Monster Hunter Rise](/games/Monster-Hunter-Rise.md)
+
+## Other
+
+- [Criticism](feedback/criticism.md)
