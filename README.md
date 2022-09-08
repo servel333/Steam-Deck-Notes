@@ -13,10 +13,12 @@ Steam Deck ([Official site](https://store.steampowered.com/steamdeck))
 
 ## Tools
 
-- Bottle - [Notes](/tools/Bottle.md)
+- Bottle - ([Notes](/tools/Bottle.md))
 - [Decky Loader](https://github.com/SteamDeckHomebrew/decky-loader) - Adds a menu that can install plugins that add functionality.
   - [Plugin DB](https://github.com/SteamDeckHomebrew/decky-plugin-database)
 - EmuDeck - [Notes](tools/EmuDeck.md)
+- `pacman` - ([Notes](/tools/Pacman.md)) Package manager built into Arch (used to install software)
+  - [docs wiki](https://wiki.archlinux.org/title/pacman)
 
 ## Games
 
