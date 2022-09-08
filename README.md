@@ -20,6 +20,7 @@ Steam Deck ([Official site](https://store.steampowered.com/steamdeck))
 - Pacman - ([notes](/tools/Pacman.md), [Guide](https://wiki.archlinux.org/title/pacman), [CLI Reference](https://archlinux.org/pacman/pacman.8.html)) - Package manager built into Arch (used to install software).
   - [docs wiki](https://wiki.archlinux.org/title/pacman)
 - [SteamTinkerLaunch](https://github.com/frostworx/steamtinkerlaunch) - A tweak tool
+  - [How to install on the Steam Deck](https://github.com/frostworx/steamtinkerlaunch/wiki/Steam-Deck)
 
 ## Games
 
