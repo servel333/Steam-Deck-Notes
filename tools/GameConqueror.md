@@ -39,6 +39,14 @@ sudo cat /etc/sudoers.d/gameconqueror
 deck ALL = (root) NOPASSWD: /usr/bin/gameconqueror
 ```
 
+### Cleanup
+
+To remove this file and this setting:
+
+```
+sudo rm /etc/sudoers.d/gameconqueror
+```
+
 ## Troubleshooting
 
 Did you install using `sudo pacman -S gameconqueror` and it failed? Remove it with (from [here](https://linux-packages.com/arch-linux/package/gameconqueror))
