@@ -19,6 +19,10 @@ And for safety, enable read-only mode again
 sudo steamos-readonly enable
 ```
 
+## Removing the password prompt
+
+<!-- ----------
+
 (The below does not appear to make it not require a password to launch.)
 
 ~~And add an entry to your Sudoers file so it does not require a password to launch.~~
@@ -46,6 +50,8 @@ To remove this file and this setting:
 ```
 sudo rm /etc/sudoers.d/gameconqueror
 ```
+
+---------- -->
 
 ## Troubleshooting
 
