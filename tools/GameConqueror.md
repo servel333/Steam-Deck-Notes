@@ -21,6 +21,10 @@ sudo steamos-readonly enable
 
 ## Removing the password prompt
 
+WIP
+
+- [Reddit: Is it possible to run a program requiring Linux password in gaming mode?](https://www.reddit.com/r/steamdeck_linux/comments/w9utc4/is_it_possible_to_run_a_program_requiring_linux/)
+
 <!-- ----------
 
 (The below does not appear to make it not require a password to launch.)
