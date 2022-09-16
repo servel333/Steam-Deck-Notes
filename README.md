@@ -1,11 +1,21 @@
 
-Steam Deck ([Official site](https://store.steampowered.com/steamdeck))
+Steam Deck ([Official site](https://www.steamdeck.com/en/), [Steam Page](https://store.steampowered.com/steamdeck))
 
 - [Steam Deck Desktop FAQ](https://help.steampowered.com/en/faqs/view/671A-4453-E8D2-323C)
 
 ## Operating system
 
 - Arch Linux ([FAQ](https://wiki.archlinux.org/title/Frequently_asked_questions), [User Repository](https://aur.archlinux.org/))
+
+## Community Resources
+
+- [Reddit r/SteamDeck](https://www.reddit.com/r/SteamDeck/)
+  - [Discord](https://discord.gg/T9FEJ5aUNv)
+- [Reddit r/DeckSupport](https://www.reddit.com/r/DeckSupport)
+- [Reddit r/SteamOS](https://www.reddit.com/r/SteamOS)
+- [Reddit r/SteamDeckTricks](https://www.reddit.com/r/SteamDeckTricks)
+- [Reddit r/steamdeck_linux](https://www.reddit.com/r/steamdeck_linux)
+- [Steam Deck Community Forum](https://steamdeck.community/)
 
 ## Steam Deck general
 
