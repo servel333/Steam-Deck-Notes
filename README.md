@@ -2,6 +2,7 @@
 Steam Deck ([Official site](https://www.steamdeck.com/en/), [Steam Page](https://store.steampowered.com/steamdeck))
 
 - [Steam Deck Desktop FAQ](https://help.steampowered.com/en/faqs/view/671A-4453-E8D2-323C)
+- [Steam Deck Recovery Instructions](https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3)
 
 ## Operating system
 
@@ -10,12 +11,12 @@ Steam Deck ([Official site](https://www.steamdeck.com/en/), [Steam Page](https:/
 ## Community Resources
 
 - [Reddit r/SteamDeck](https://www.reddit.com/r/SteamDeck/)
-  - [Discord](https://discord.gg/T9FEJ5aUNv)
 - [Reddit r/DeckSupport](https://www.reddit.com/r/DeckSupport)
 - [Reddit r/SteamOS](https://www.reddit.com/r/SteamOS)
 - [Reddit r/SteamDeckTricks](https://www.reddit.com/r/SteamDeckTricks)
 - [Reddit r/steamdeck_linux](https://www.reddit.com/r/steamdeck_linux)
-- [Steam Deck Community Forum](https://steamdeck.community/)
+- [Steam Deck Community Forum](https://steamdeck.community/) - Discussion forums
+- [SteamDB](https://steamdb.info/) - Get game AppIDs
 
 ## Steam Deck general
 
@@ -38,6 +39,7 @@ Steam Deck ([Official site](https://www.steamdeck.com/en/), [Steam Page](https:/
 ## Games
 
 - [Monster Hunter Rise](/games/Monster-Hunter-Rise.md)
+- 
 
 ## Other
 
