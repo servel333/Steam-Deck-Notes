@@ -1,12 +1,15 @@
 
 - Download [CheatEngine](https://www.cheatengine.org/downloads.php)
 - Install [Bottle](/tools/Bottle.md)
+- Find out where your bottles are. You may customize it if you want.
+  - Hamburger menu -> Preferences -> Advanced -> Custom Bottles Path
+  - `/run/media/mmcblk0p1/bottle`
 - Create a new bottle (Plus in upper left)
 - Name it whatever. Recommend `Cheat Engine`
 
 ## References
 
-From [Source](https://www.reddit.com/r/SteamDeck/comments/u5z8vw/comment/i56k2fg/):
+From [Source](https://www.reddit.com/r/SteamDeck/comments/u5z8vw/comment/i56k2fg/)
 
 > CheatEngine works pretty ok under wine/proton on desktop, so shouldn't be that different.
 
