@@ -38,8 +38,9 @@ Steam Deck ([Official site](https://www.steamdeck.com/en/), [Steam Page](https:/
 
 ## Games
 
-- [Monster Hunter Rise](/games/Monster-Hunter-Rise.md)
-- 
+- Generation Zero (App ID 704270)
+- [Monster Hunter Rise](/games/Monster-Hunter-Rise.md) (App ID 1446780)
+- Monster Hunter Rise: Sunbreak DLC (App ID 1880360)
 
 ## Other
 
