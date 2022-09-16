@@ -16,11 +16,11 @@
 Now, if you launch Cheat Engine from this, it will run, but it will not work. It's not running in a games Proton container, like it needs to be. We have some more steps to take.
 
 - Locate the Cheat Engine executable.
-  - Under your Bottle Root (from above) it will be here: `Cheat-Engine/drive_c/Program Files/Cheat Engine 7.4/Cheat Engine.exe`
-  - If you use your SD card, like me, this is the full path: `/run/media/mmcblk0p1/bottle/Cheat-Engine/drive_c/Program Files/Cheat Engine 7.4/Cheat Engine.exe`
+  - Under your Bottle Root (from above) it will be here: `Cheat-Engine/drive_c/Program Files/Cheat Engine 7.4/cheatengine-x86_64.exe`
+  - If you use your SD card, like me, this is the full path: `/run/media/mmcblk0p1/bottle/Cheat-Engine/drive_c/Program Files/Cheat Engine 7.4/cheatengine-x86_64.exe`
 
 ```
-protontricks -c /path/to/cheatengine-x86_64.exe APPIP
+protontricks -c /path/to/cheatengine-x86_64.exe {{APPIP}}
 ```
 
 
