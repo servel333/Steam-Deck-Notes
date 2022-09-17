@@ -19,11 +19,11 @@ Now, if you launch Cheat Engine from this, it will run, but it will not work. It
   - Under your Bottle Root (from above) it will be here: `Cheat-Engine/drive_c/Program Files/Cheat Engine 7.4/cheatengine-x86_64.exe`
   - If you use your SD card, like me, this is the full path: `/run/media/mmcblk0p1/bottle/Cheat-Engine/drive_c/Program Files/Cheat Engine 7.4/cheatengine-x86_64.exe`
 
-```
-protontricks -c /path/to/cheatengine-x86_64.exe {{APPIP}}
-```
+**Continued WIP**
 
-
+```
+protontricks -c "/run/media/mmcblk0p1/bottle/Cheat-Engine/drive_c/Program Files/Cheat Engine 7.4/cheatengine-x86_64.exe" {{APPIP}}
+```
 
 ## References
 
