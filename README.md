@@ -4,9 +4,14 @@ Steam Deck ([Official site](https://www.steamdeck.com/en/), [Steam Page](https:/
 - [Steam Deck Desktop FAQ](https://help.steampowered.com/en/faqs/view/671A-4453-E8D2-323C)
 - [Steam Deck Recovery Instructions](https://help.steampowered.com/en/faqs/view/1B71-EDF2-EB6D-2BB3)
 
-## Operating system
+## Operating system and Hardware
 
 - Arch Linux ([FAQ](https://wiki.archlinux.org/title/Frequently_asked_questions), [User Repository](https://aur.archlinux.org/))
+- [Technical Specs](https://www.steamdeck.com/en/tech) ([notes](/steam-deck/specs.md))
+- [iFixIt Steam Deck Instructions](https://www.ifixit.com/Device/Steam_Deck)
+- [iFixIt Steam Deck Parts](https://www.ifixit.com/Parts/Steam_Deck)
+  - [Steam Deck Battery](https://www.ifixit.com/Store/Miscellanous/Steam-Deck-Battery/IF260-001?o=2)
+- 2230 m.2 NVMe SSD PCIe Gen 3 x4 SSD
 
 ## Community Resources
 
