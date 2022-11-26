@@ -49,4 +49,5 @@ Steam Deck ([Official site](https://www.steamdeck.com/en/), [Steam Page](https:/
 
 ## Other
 
+- [WIP and unsorted](WIP.md)
 - [Criticism](feedback/criticism.md)
