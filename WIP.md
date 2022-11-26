@@ -14,3 +14,9 @@ You need to set the user password.
 ```
 passwd
 ```
+
+```
+New password:
+Retype new password:
+passwd: password updated successfully
+```
