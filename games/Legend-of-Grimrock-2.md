@@ -42,6 +42,12 @@ party.party:getChampion(3):addSkillPoints(200)
 party.party:getChampion(4):addSkillPoints(200)
 ```
 
+## set count of held item
+
+```lua
+getMouseItem():setStackSize(10)
+```
+
 ## Fill hunger
 
 ```lua
