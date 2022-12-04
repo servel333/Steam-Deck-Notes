@@ -186,13 +186,14 @@ The Lua functions and methods described here can be accessed from a script entit
 
 In addition the following standard Lua functions can be used:
 
-- tonumber
-- tostring
-- type
-- pairs
-- ipairs
-- and all functions in table
-- math and string modules.
+- [tonumber](https://www.lua.org/manual/5.1/manual.html#pdf-tonumber)
+- [tostring](https://www.lua.org/manual/5.1/manual.html#pdf-tostring)
+- [type](https://www.lua.org/manual/5.1/manual.html#pdf-type)
+- [pairs](https://www.lua.org/manual/5.1/manual.html#pdf-pairs)
+- [ipairs](https://www.lua.org/manual/5.1/manual.html#pdf-ipairs)
+- and all functions in the [table](https://www.lua.org/manual/5.1/manual.html#5.5) module
+- and all functions in the [math](https://www.lua.org/manual/5.1/manual.html#5.6) module
+- and all functions in the [string](https://www.lua.org/manual/5.1/manual.html#5.4) module
 
 See the Lua reference manual for more details about their usage.
 
