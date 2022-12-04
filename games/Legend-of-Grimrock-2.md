@@ -1,5 +1,78 @@
 
+# Console commands quick reference
+
+## Heal party
+
+```lua
+party.party:heal()
+party:heal()
+```
+
+## How Get Champion works
+
+```lua
+-- @param (number) $ChampionIndex  The index of the champion in the part. 1 to 4 (top left, top right, bottom left, bottom right, respectively).
+-- @param (number) $amount
+-- party.party:getChampion( $ChampionIndex )
+party.party:getChampion(1)  // Top Left champion
+party.party:getChampion(2)  // Top Right champion
+party.party:getChampion(3)  // Bottom Left champion
+party.party:getChampion(4)  // Bottom Right champion
+
+-- Example with
+party.party:getChampion(1):addSkillPoints(1)
+```
+
+## Add skill points to one of your champions.
+
+Note, as long as you have unspent skill points, your champion portraits will show "level up". If you add more skill points than you can spend, this message will be visible forever.
+
+```lua
+-- @param (number) $ChampionIndex  The index of the champion in the part. 1 to 4.
+-- @param (number) $amount
+-- party.party:getChampion( $ChampionIndex ):consumeFood( $amount )
+party.party:getChampion(1):addSkillPoints(1)  // Add one skill point to the top left champion.
+party.party:getChampion(1):addSkillPoints(-1) // May remove a skill point
+```
+
+```lua
+party.party:getChampion(1):addSkillPoints(200)
+party.party:getChampion(2):addSkillPoints(200)
+party.party:getChampion(3):addSkillPoints(200)
+party.party:getChampion(4):addSkillPoints(200)
+```
+
+## Fill hunger
+
+```lua
+-- @param (number) $amount
+-- party.party:getChampion( $ChampionIndex ):consumeFood( $amount )
+
+party.party:getChampion(1):consumeFood(100)
+```
+
+## Gain Experience
+
+```lua
+-- party.party:getChampion( $ChampionIndex ):gainExp( $xp )
+
+party.party:getChampion(1):gainExp(1000)
+```
+
+## Modify a champion stat
+
+```lua
+party.party:getChampion(1):modifyBaseStat("strength",  1)
+party.party:getChampion(1):modifyBaseStat("dexterity", 1)
+party.party:getChampion(1):modifyBaseStat("vitality",  1)
+party.party:getChampion(1):modifyBaseStat("willpower", 1)
+```
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
 # Scripting Reference
+
+Source: [grimrock.net Scripting Reference](http://www.grimrock.net/modding/scripting-reference/) (Dead, [archive](https://web.archive.org/web/20220525100241/http://www.grimrock.net/modding/scripting-reference/))
 
 <!--
 Contents
@@ -176,6 +249,8 @@ XeloroidBrainComponent
 ZarchtonBrainComponent
 -->
 
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
 Welcome!
 
 You are reading the Lua scripting reference manual for Legend of Grimrock 2.
@@ -196,6 +271,8 @@ In addition the following standard Lua functions can be used:
 - and all functions in the [string](https://www.lua.org/manual/5.1/manual.html#5.4) module
 
 See the Lua reference manual for more details about their usage.
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 ## Entities and Components
 
@@ -234,6 +311,8 @@ You can also refer to the script entity itself from its own script code using th
 Some special objects have no direct representation of them in the dungeon. For example, a Champion is an object that is contained inside the Party entity. You have no direct access to these objects but various functions return references to them. For example, the following script retrieves the first champion in the party and changes his name:
 
 - `party.party:getChampion(1):setName("Jakob")`
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 ## Global Functions
 
@@ -608,26 +687,26 @@ wall = {
 
 Makes an item ammo for missile or firearm attack. The ammo types must match in the Ammo component and the attack component.
 
-- `AmmoItemComponent:getAmmoType()`	Get ammunition type which must match with weapon’s ammo type
-- `AmmoItemComponent:getAttackPower()`	Get damage bonus to weapon’s base damage
-- `AmmoItemComponent:setAmmoType(string)`	Set ammunition type which must match with weapon’s ammo type
-- `AmmoItemComponent:setAttackPower(number)`	Set damage bonus to weapon’s base damage
+- `AmmoItemComponent:getAmmoType()`: Get ammunition type which must match with weapon’s ammo type
+- `AmmoItemComponent:getAttackPower()`: Get damage bonus to weapon’s base damage
+- `AmmoItemComponent:setAmmoType(string)`: Set ammunition type which must match with weapon’s ammo type
+- `AmmoItemComponent:setAttackPower(number)`: Set damage bonus to weapon’s base damage
 
 ## AnimationComponent (Component)
 
 Adds animations to the 3D model attached to the same GameObject. The GameObject must have a Model component.
 
 - `AnimationComponent:crossfade(name, length)`
-- `AnimationComponent:getCurrentLevelOnly()`	Get whether animation component is updated only when party is on the same level
-- `AnimationComponent:getLoop()`	Get looping for initial animation
-- `AnimationComponent:getMaxUpdateDistance()`	Get max update distance in squares
-- `AnimationComponent:getPlayOnInit()`	Get name of the initial animation to be played when the object is spawned
+- `AnimationComponent:getCurrentLevelOnly()`: Get whether animation component is updated only when party is on the same level
+- `AnimationComponent:getLoop()`: Get looping for initial animation
+- `AnimationComponent:getMaxUpdateDistance()`: Get max update distance in squares
+- `AnimationComponent:getPlayOnInit()`: Get name of the initial animation to be played when the object is spawned
 - `AnimationComponent:play(name)`
 - `AnimationComponent:sample()`
-- `AnimationComponent:setCurrentLevelOnly(boolean)`	Set whether animation component is updated only when party is on the same level
-- `AnimationComponent:setLoop(boolean)`	Set looping for initial animation
-- `AnimationComponent:setMaxUpdateDistance(number)`	Set max update distance in squares
-- `AnimationComponent:setPlayOnInit(string)`	Set name of the initial animation to be played when the object is spawned
+- `AnimationComponent:setCurrentLevelOnly(boolean)`: Set whether animation component is updated only when party is on the same level
+- `AnimationComponent:setLoop(boolean)`: Set looping for initial animation
+- `AnimationComponent:setMaxUpdateDistance(number)`: Set max update distance in squares
+- `AnimationComponent:setPlayOnInit(string)`: Set name of the initial animation to be played when the object is spawned
 - `AnimationComponent:stop()`
 - `AnimationComponent.onAnimationEvent(self, event)`
 
@@ -690,10 +769,10 @@ Base-class for all monster brains. You can either use one of the built in brains
 - `BrainComponent:dropItemOn(string, string)`
 - `BrainComponent:flee()`
 - `BrainComponent:follow()`
-- `BrainComponent:getAllAroundSight()`	Get whether the monster can see in any direction
-- `BrainComponent:getMorale()`	Get morale rating in range 0-100 (0 = coward, 100 = fearless)
-- `BrainComponent:getSeeInvisible()`	Get whether the monster can sense invisible things (such as invisible party members)
-- `BrainComponent:getSight()`	Get maximum sight range in squares
+- `BrainComponent:getAllAroundSight()`: Get whether the monster can see in any direction
+- `BrainComponent:getMorale()`: Get morale rating in range 0-100 (0 = coward, 100 = fearless)
+- `BrainComponent:getSeeInvisible()`: Get whether the monster can sense invisible things (such as invisible party members)
+- `BrainComponent:getSight()`: Get maximum sight range in squares
 - `BrainComponent:goTo(string)`
 - `BrainComponent:here(string)`
 - `BrainComponent:isSafeTile(x, y)`
@@ -708,10 +787,10 @@ Base-class for all monster brains. You can either use one of the built in brains
 - `BrainComponent:pursuit()`
 - `BrainComponent:rangedAttack()`
 - `BrainComponent:seek(number)`
-- `BrainComponent:setAllAroundSight(boolean)`	Set whether the monster can see in any direction
-- `BrainComponent:setMorale(number)`	Set morale rating in range 0-100 (0 = coward, 100 = fearless)
-- `BrainComponent:setSeeInvisible(boolean)`	Set whether the monster can sense invisible things (such as invisible party members)
-- `BrainComponent:setSight(number)`	Set maximum sight range in squares
+- `BrainComponent:setAllAroundSight(boolean)`: Set whether the monster can see in any direction
+- `BrainComponent:setMorale(number)`: Set morale rating in range 0-100 (0 = coward, 100 = fearless)
+- `BrainComponent:setSeeInvisible(boolean)`: Set whether the monster can sense invisible things (such as invisible party members)
+- `BrainComponent:setSight(number)`: Set maximum sight range in squares
 - `BrainComponent:startFleeing()`
 - `BrainComponent:startGuarding()`
 - `BrainComponent:stepTowards(string, number)`
@@ -877,12 +956,12 @@ Implements the chest opening and closing animations. A chest be optionally locke
 Defines the click box of an object. onClick hook is called when the player clicks on the object. A GameObject can have any number of Clickables.
 
 - `ClickableComponent:getDebugDraw()`
-- `ClickableComponent:getFrontFacing()`	Get whether the party needs to face the clickable to use it (default false)
-- `ClickableComponent:getMaxDistance()`	Get maximum distance in squares (default 0)
+- `ClickableComponent:getFrontFacing()`: Get whether the party needs to face the clickable to use it (default false)
+- `ClickableComponent:getMaxDistance()`: Get maximum distance in squares (default 0)
 - `ClickableComponent:getSize()`
 - `ClickableComponent:setDebugDraw(boolean)`
-- `ClickableComponent:setFrontFacing(boolean)`	Set whether the party needs to face the clickable to use it (default false)
-- `ClickableComponent:setMaxDistance(number)`	Set maximum distance in squares (default 0)
+- `ClickableComponent:setFrontFacing(boolean)`: Set whether the party needs to face the clickable to use it (default false)
+- `ClickableComponent:setMaxDistance(number)`: Set maximum distance in squares (default 0)
 - `ClickableComponent:setSize(size)`
 - `ClickableComponent.onClick(self)`
 
@@ -1037,7 +1116,7 @@ Door component blocks movement and projectiles from passing between two adjacent
 - `DoorComponent:getCloseVelocity()`
 - `DoorComponent:getDoorState()`
 - `DoorComponent:getDoubleDoor()`
-- `DoorComponent:getHitSound()`	Get sound to play when the door is hit
+- `DoorComponent:getHitSound()`: Get sound to play when the door is hit
 - `DoorComponent:getKillPillars()`
 - `DoorComponent:getLockSound()`
 - `DoorComponent:getMaxHeight()`
@@ -1045,8 +1124,8 @@ Door component blocks movement and projectiles from passing between two adjacent
 - `DoorComponent:getOpenVelocity()`
 - `DoorComponent:getOpeningDirection()`
 - `DoorComponent:getPullChain()`
-- `DoorComponent:getPullchainObject()`	Get custom pullchain object
-- `DoorComponent:getSecretDoor()`	Get secret doors are not visible on the map
+- `DoorComponent:getPullchainObject()`: Get custom pullchain object
+- `DoorComponent:getSecretDoor()`: Get secret doors are not visible on the map
 - `DoorComponent:getSparse()`
 - `DoorComponent:isClosed()`
 - `DoorComponent:isClosing()`
@@ -1059,7 +1138,7 @@ Door component blocks movement and projectiles from passing between two adjacent
 - `DoorComponent:setCloseVelocity(number)`
 - `DoorComponent:setDoorState(state)`
 - `DoorComponent:setDoubleDoor(boolean)`
-- `DoorComponent:setHitSound(string)`	Set sound to play when the door is hit
+- `DoorComponent:setHitSound(string)`: Set sound to play when the door is hit
 - `DoorComponent:setKillPillars(boolean)`
 - `DoorComponent:setLockSound(string)`
 - `DoorComponent:setMaxHeight(number)`
@@ -1067,8 +1146,8 @@ Door component blocks movement and projectiles from passing between two adjacent
 - `DoorComponent:setOpenVelocity(number)`
 - `DoorComponent:setOpeningDirection(string)`
 - `DoorComponent:setPullChain(enable)`
-- `DoorComponent:setPullchainObject(string)`	Set custom pullchain object
-- `DoorComponent:setSecretDoor(boolean)`	Set secret doors are not visible on the map
+- `DoorComponent:setPullchainObject(string)`: Set custom pullchain object
+- `DoorComponent:setSecretDoor(boolean)`: Set secret doors are not visible on the map
 - `DoorComponent:setSparse(boolean)`
 - `DoorComponent:toggle()`
 - `DoorComponent.onOpen(self)`
@@ -1094,48 +1173,48 @@ Door component blocks movement and projectiles from passing between two adjacent
 
 Implemented various modifiers to stats of an Champion when the item is equipped. The traits of an item define where the item can be equipped.
 
-- `EquipmentItemComponent:getAccuracy()`	Get accuracy modifier
-- `EquipmentItemComponent:getCooldownRate()`	Get cooldown rate modifier
-- `EquipmentItemComponent:getCriticalChance()`	Get critical chance modifier
+- `EquipmentItemComponent:getAccuracy()`: Get accuracy modifier
+- `EquipmentItemComponent:getCooldownRate()`: Get cooldown rate modifier
+- `EquipmentItemComponent:getCriticalChance()`: Get critical chance modifier
 - `EquipmentItemComponent:getDamage()`
-- `EquipmentItemComponent:getDexterity()`	Get dexterity modifier
-- `EquipmentItemComponent:getEnergy()`	Get energy modifier
-- `EquipmentItemComponent:getEnergyRegenerationRate()`	Get energy regeneration rate modifier
-- `EquipmentItemComponent:getEvasion()`	Get evasion modifier
-- `EquipmentItemComponent:getExpRate()`	Get experience rate modifier
-- `EquipmentItemComponent:getFoodRate()`	Get food consumption rate modifier
-- `EquipmentItemComponent:getHealth()`	Get health modifier
-- `EquipmentItemComponent:getHealthRegenerationRate()`	Get health regeneration rate modifier
-- `EquipmentItemComponent:getProtection()`	Get protection modifier
-- `EquipmentItemComponent:getResistCold()`	Get cold resistance modifier
-- `EquipmentItemComponent:getResistFire()`	Get fire resistance modifier
-- `EquipmentItemComponent:getResistPoison()`	Get poison resistance modifier
-- `EquipmentItemComponent:getResistShock()`	Get shock resistance modifier
+- `EquipmentItemComponent:getDexterity()`: Get dexterity modifier
+- `EquipmentItemComponent:getEnergy()`: Get energy modifier
+- `EquipmentItemComponent:getEnergyRegenerationRate()`: Get energy regeneration rate modifier
+- `EquipmentItemComponent:getEvasion()`: Get evasion modifier
+- `EquipmentItemComponent:getExpRate()`: Get experience rate modifier
+- `EquipmentItemComponent:getFoodRate()`: Get food consumption rate modifier
+- `EquipmentItemComponent:getHealth()`: Get health modifier
+- `EquipmentItemComponent:getHealthRegenerationRate()`: Get health regeneration rate modifier
+- `EquipmentItemComponent:getProtection()`: Get protection modifier
+- `EquipmentItemComponent:getResistCold()`: Get cold resistance modifier
+- `EquipmentItemComponent:getResistFire()`: Get fire resistance modifier
+- `EquipmentItemComponent:getResistPoison()`: Get poison resistance modifier
+- `EquipmentItemComponent:getResistShock()`: Get shock resistance modifier
 - `EquipmentItemComponent:getSlot()`
-- `EquipmentItemComponent:getStrength()`	Get strength modifier
-- `EquipmentItemComponent:getVitality()`	Get vitality modifier
-- `EquipmentItemComponent:getWillpower()`	Get willpower modifier
-- `EquipmentItemComponent:setAccuracy(number)`	Set accuracy modifier
-- `EquipmentItemComponent:setCooldownRate(number)`	Set cooldown rate modifier
-- `EquipmentItemComponent:setCriticalChance(number)`	Set critical chance modifier
+- `EquipmentItemComponent:getStrength()`: Get strength modifier
+- `EquipmentItemComponent:getVitality()`: Get vitality modifier
+- `EquipmentItemComponent:getWillpower()`: Get willpower modifier
+- `EquipmentItemComponent:setAccuracy(number)`: Set accuracy modifier
+- `EquipmentItemComponent:setCooldownRate(number)`: Set cooldown rate modifier
+- `EquipmentItemComponent:setCriticalChance(number)`: Set critical chance modifier
 - `EquipmentItemComponent:setDamage(number)`
-- `EquipmentItemComponent:setDexterity(number)`	Set dexterity modifier
-- `EquipmentItemComponent:setEnergy(number)`	Set energy modifier
-- `EquipmentItemComponent:setEnergyRegenerationRate(number)`	Set energy regeneration rate modifier
-- `EquipmentItemComponent:setEvasion(number)`	Set evasion modifier
-- `EquipmentItemComponent:setExpRate(number)`	Set experience rate modifier
-- `EquipmentItemComponent:setFoodRate(number)`	Set food consumption rate modifier
-- `EquipmentItemComponent:setHealth(number)`	Set health modifier
-- `EquipmentItemComponent:setHealthRegenerationRate(number)`	Set health regeneration rate modifier
-- `EquipmentItemComponent:setProtection(number)`	Set protection modifier
-- `EquipmentItemComponent:setResistCold(number)`	Set cold resistance modifier
-- `EquipmentItemComponent:setResistFire(number)`	Set fire resistance modifier
-- `EquipmentItemComponent:setResistPoison(number)`	Set poison resistance modifier
-- `EquipmentItemComponent:setResistShock(number)`	Set shock resistance modifier
+- `EquipmentItemComponent:setDexterity(number)`: Set dexterity modifier
+- `EquipmentItemComponent:setEnergy(number)`: Set energy modifier
+- `EquipmentItemComponent:setEnergyRegenerationRate(number)`: Set energy regeneration rate modifier
+- `EquipmentItemComponent:setEvasion(number)`: Set evasion modifier
+- `EquipmentItemComponent:setExpRate(number)`: Set experience rate modifier
+- `EquipmentItemComponent:setFoodRate(number)`: Set food consumption rate modifier
+- `EquipmentItemComponent:setHealth(number)`: Set health modifier
+- `EquipmentItemComponent:setHealthRegenerationRate(number)`: Set health regeneration rate modifier
+- `EquipmentItemComponent:setProtection(number)`: Set protection modifier
+- `EquipmentItemComponent:setResistCold(number)`: Set cold resistance modifier
+- `EquipmentItemComponent:setResistFire(number)`: Set fire resistance modifier
+- `EquipmentItemComponent:setResistPoison(number)`: Set poison resistance modifier
+- `EquipmentItemComponent:setResistShock(number)`: Set shock resistance modifier
 - `EquipmentItemComponent:setSlot(number)`
-- `EquipmentItemComponent:setStrength(number)`	Set strength modifier
-- `EquipmentItemComponent:setVitality(number)`	Set vitality modifier
-- `EquipmentItemComponent:setWillpower(number)`	Set willpower modifier
+- `EquipmentItemComponent:setStrength(number)`: Set strength modifier
+- `EquipmentItemComponent:setVitality(number)`: Set vitality modifier
+- `EquipmentItemComponent:setWillpower(number)`: Set willpower modifier
 - `EquipmentItemComponent.onRecomputeStats(self, champion)`
 - `EquipmentItemComponent.onComputeAccuracy(self, champion, weapon, attack, attackType)`
 - `EquipmentItemComponent.onComputeCritChance(self, champion, weapon, attack, attackType)`
@@ -1154,28 +1233,28 @@ Implements AI for Fire Elementals.
 
 Implements firearm attacks. Firearm attacks need ammo.
 
-- `FirearmAttackComponent:getAccuracy()`	Get optional accuracy bonus
-- `FirearmAttackComponent:getAmmo()`	Get type of ammo needed to fire the weapon (optional)
-- `FirearmAttackComponent:getAttackPower()`	Get attack power of the attack
-- `FirearmAttackComponent:getAttackSound()`	Get name of the sound effect to play (default is `swipe`)
-- `FirearmAttackComponent:getBaseDamageStat()`	Get base statistic used for computing damage modifier (default none)
-- `FirearmAttackComponent:getClipSize()`	Get (optional) clip size for revolver like weapons
-- `FirearmAttackComponent:getDamageType()`	Get damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
-- `FirearmAttackComponent:getLoadedCount()`	Get (optional) how much ammo is currently loaded in the revolver
-- `FirearmAttackComponent:getPierce()`	Get how many points of armor is bypassed by the attack
-- `FirearmAttackComponent:getRange()`	Get range in squares
+- `FirearmAttackComponent:getAccuracy()`: Get optional accuracy bonus
+- `FirearmAttackComponent:getAmmo()`: Get type of ammo needed to fire the weapon (optional)
+- `FirearmAttackComponent:getAttackPower()`: Get attack power of the attack
+- `FirearmAttackComponent:getAttackSound()`: Get name of the sound effect to play (default is `swipe`)
+- `FirearmAttackComponent:getBaseDamageStat()`: Get base statistic used for computing damage modifier (default none)
+- `FirearmAttackComponent:getClipSize()`: Get (optional) clip size for revolver like weapons
+- `FirearmAttackComponent:getDamageType()`: Get damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
+- `FirearmAttackComponent:getLoadedCount()`: Get (optional) how much ammo is currently loaded in the revolver
+- `FirearmAttackComponent:getPierce()`: Get how many points of armor is bypassed by the attack
+- `FirearmAttackComponent:getRange()`: Get range in squares
 - `FirearmAttackComponent:getRequiredLevel()`
 - `FirearmAttackComponent:getSkill()`
-- `FirearmAttackComponent:setAccuracy(number)`	Set optional accuracy bonus
-- `FirearmAttackComponent:setAmmo(string)`	Set type of ammo needed to fire the weapon (optional)
-- `FirearmAttackComponent:setAttackPower(number)`	Set attack power of the attack
-- `FirearmAttackComponent:setAttackSound(string)`	Set name of the sound effect to play (default is `swipe`)
-- `FirearmAttackComponent:setBaseDamageStat(number)`	Set base statistic used for computing damage modifier (default none)
-- `FirearmAttackComponent:setClipSize(number)`	Set (optional) clip size for revolver like weapons
-- `FirearmAttackComponent:setDamageType(string)`	Set damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
-- `FirearmAttackComponent:setLoadedCount(number)`	Set (optional) how much ammo is currently loaded in the revolver
-- `FirearmAttackComponent:setPierce(number)`	Set how many points of armor is bypassed by the attack
-- `FirearmAttackComponent:setRange(number)`	Set range in squares
+- `FirearmAttackComponent:setAccuracy(number)`: Set optional accuracy bonus
+- `FirearmAttackComponent:setAmmo(string)`: Set type of ammo needed to fire the weapon (optional)
+- `FirearmAttackComponent:setAttackPower(number)`: Set attack power of the attack
+- `FirearmAttackComponent:setAttackSound(string)`: Set name of the sound effect to play (default is `swipe`)
+- `FirearmAttackComponent:setBaseDamageStat(number)`: Set base statistic used for computing damage modifier (default none)
+- `FirearmAttackComponent:setClipSize(number)`: Set (optional) clip size for revolver like weapons
+- `FirearmAttackComponent:setDamageType(string)`: Set damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
+- `FirearmAttackComponent:setLoadedCount(number)`: Set (optional) how much ammo is currently loaded in the revolver
+- `FirearmAttackComponent:setPierce(number)`: Set how many points of armor is bypassed by the attack
+- `FirearmAttackComponent:setRange(number)`: Set range in squares
 - `FirearmAttackComponent:setRequiredLevel(number)`
 - `FirearmAttackComponent:setSkill(string)`
 - `FirearmAttackComponent.onBackfire(self, champion)`
@@ -1188,7 +1267,7 @@ A floor trigger reacts to objects placed into trigger’s square. A floor trigge
 - `FloorTriggerComponent:getActivateSound()`
 - `FloorTriggerComponent:getDeactivateSound()`
 - `FloorTriggerComponent:getDisableSelf()`
-- `FloorTriggerComponent:getPressurePlate()`	Get whether the floor trigger is part of an actual pressure plate device (camera is tilted down when standing on pressure plates, etc.)
+- `FloorTriggerComponent:getPressurePlate()`: Get whether the floor trigger is part of an actual pressure plate device (camera is tilted down when standing on pressure plates, etc.)
 - `FloorTriggerComponent:getTriggeredByDigging()`
 - `FloorTriggerComponent:getTriggeredByEntityType()`
 - `FloorTriggerComponent:getTriggeredByItem()`
@@ -1200,7 +1279,7 @@ A floor trigger reacts to objects placed into trigger’s square. A floor trigge
 - `FloorTriggerComponent:setActivateSound(string)`
 - `FloorTriggerComponent:setDeactivateSound(string)`
 - `FloorTriggerComponent:setDisableSelf(boolean)`
-- `FloorTriggerComponent:setPressurePlate(boolean)`	Set whether the floor trigger is part of an actual pressure plate device (camera is tilted down when standing on pressure plates, etc.)
+- `FloorTriggerComponent:setPressurePlate(boolean)`: Set whether the floor trigger is part of an actual pressure plate device (camera is tilted down when standing on pressure plates, etc.)
 - `FloorTriggerComponent:setTriggeredByDigging(boolean)`
 - `FloorTriggerComponent:setTriggeredByEntityType(string)`
 - `FloorTriggerComponent:setTriggeredByItem(boolean)`
@@ -1318,10 +1397,10 @@ Implements the Goromorg shield effect for monsters. The shielded monster is invu
 
 Makes the object fall unless it is on ground or supported by a surface or a platform.
 
-- `GravityComponent:getDestroySelf()`	Get whether component should be destroyed when it impacts ground
+- `GravityComponent:getDestroySelf()`: Get whether component should be destroyed when it impacts ground
 - `GravityComponent:getFallingSpeed()`
 - `GravityComponent:isFalling()`
-- `GravityComponent:setDestroySelf(boolean)`	Set whether component should be destroyed when it impacts ground
+- `GravityComponent:setDestroySelf(boolean)`: Set whether component should be destroyed when it impacts ground
 - `GravityComponent:setFallingSpeed(speed)`
 
 ## HealthComponent (Component)
@@ -1331,12 +1410,12 @@ Makes the object breakable. Typically used with Obstacle component to make break
 - `HealthComponent:getDieSound()`
 - `HealthComponent:getHealth()`
 - `HealthComponent:getImmunities()`
-- `HealthComponent:getInvulnerable()`	Get whether the object is invulnerable to all damage
+- `HealthComponent:getInvulnerable()`: Get whether the object is invulnerable to all damage
 - `HealthComponent:getSpawnOnDeath()`
 - `HealthComponent:setDieSound(string)`
 - `HealthComponent:setHealth(number)`
 - `HealthComponent:setImmunities(table)`
-- `HealthComponent:setInvulnerable(boolean)`	Set whether the object is invulnerable to all damage
+- `HealthComponent:setInvulnerable(boolean)`: Set whether the object is invulnerable to all damage
 - `HealthComponent:setSpawnOnDeath(string)`
 - `HealthComponent.onDie(self)`
 
@@ -1372,7 +1451,7 @@ Implements the Ice Shards spell.
 
 Base-class for item actions (usually attacks). onAttack hook is called when the item’s action is performed by an champion.
 
-- `ItemActionComponent:getBuildup()`	Get power attack buildup time (default 1 second)
+- `ItemActionComponent:getBuildup()`: Get power attack buildup time (default 1 second)
 - `ItemActionComponent:getChainAction()`
 - `ItemActionComponent:getChainActionDelay()`
 - `ItemActionComponent:getCooldown()`
@@ -1381,10 +1460,10 @@ Base-class for item actions (usually attacks). onAttack hook is called when the 
 - `ItemActionComponent:getNextChainAction()`
 - `ItemActionComponent:getRepeatCount()`
 - `ItemActionComponent:getRepeatDelay()`
-- `ItemActionComponent:getRequirements()`	Get list of skill requirements, e.g. { `two_handed`, 1, `axes`, 3 }
+- `ItemActionComponent:getRequirements()`: Get list of skill requirements, e.g. { `two_handed`, 1, `axes`, 3 }
 - `ItemActionComponent:getRequirementsText()`
-- `ItemActionComponent:getUiName()`	Get power attack name
-- `ItemActionComponent:setBuildup(number)`	Set power attack buildup time (default 1 second)
+- `ItemActionComponent:getUiName()`: Get power attack name
+- `ItemActionComponent:setBuildup(number)`: Set power attack buildup time (default 1 second)
 - `ItemActionComponent:setChainAction(string)`
 - `ItemActionComponent:setChainActionDelay(number)`
 - `ItemActionComponent:setCooldown(number)`
@@ -1392,8 +1471,8 @@ Base-class for item actions (usually attacks). onAttack hook is called when the 
 - `ItemActionComponent:setGameEffect(string)`
 - `ItemActionComponent:setRepeatCount(number)`
 - `ItemActionComponent:setRepeatDelay(number)`
-- `ItemActionComponent:setRequirements(table)`	Set list of skill requirements, e.g. { `two_handed`, 1, `axes`, 3 }
-- `ItemActionComponent:setUiName(string)`	Set power attack name
+- `ItemActionComponent:setRequirements(table)`: Set list of skill requirements, e.g. { `two_handed`, 1, `axes`, 3 }
+- `ItemActionComponent:setUiName(string)`: Set power attack name
 - `ItemActionComponent.onAttack(self, champion, slot, chainIndex)`
 
 ## ItemComponent (Component)
@@ -1401,65 +1480,65 @@ Base-class for item actions (usually attacks). onAttack hook is called when the 
 Makes the object an item that can be picked up, dropped, thrown and placed into champions’ hands and inventory. Requires Model component.
 
 - `ItemComponent:addTrait(trait)`
-- `ItemComponent:getAchievement()`	Get achievement unlocked when the item is first picked up
-- `ItemComponent:getArmorSet()`	Get the name of the armor set the item belongs to
+- `ItemComponent:getAchievement()`: Get achievement unlocked when the item is first picked up
+- `ItemComponent:getArmorSet()`: Get the name of the armor set the item belongs to
 - `ItemComponent:getCharges()`
 - `ItemComponent:getConvertToItemOnImpact()`
-- `ItemComponent:getDescription()`	Get textual description of the item
-- `ItemComponent:getFitContainer()`	Get whether the item fits inside containers such as sacks or wooden boxes (default true)
+- `ItemComponent:getDescription()`: Get textual description of the item
+- `ItemComponent:getFitContainer()`: Get whether the item fits inside containers such as sacks or wooden boxes (default true)
 - `ItemComponent:getFormattedName()`
 - `ItemComponent:getFragile()`
 - `ItemComponent:getFuel()`
 - `ItemComponent:getGameEffect()`
-- `ItemComponent:getGfxAtlas()`	Get filename of the icon texture
-- `ItemComponent:getGfxIndex()`	Get index of icon in texture atlas
-- `ItemComponent:getGfxIndexInHand()`	Get index of in-hand icon
-- `ItemComponent:getGfxIndexPowerAttack()`	Get index of charging power attack icon
-- `ItemComponent:getImpactSound()`	Get sound which is played when projectile item hits wall or a wall is hit with melee attack
+- `ItemComponent:getGfxAtlas()`: Get filename of the icon texture
+- `ItemComponent:getGfxIndex()`: Get index of icon in texture atlas
+- `ItemComponent:getGfxIndexInHand()`: Get index of in-hand icon
+- `ItemComponent:getGfxIndexPowerAttack()`: Get index of charging power attack icon
+- `ItemComponent:getImpactSound()`: Get sound which is played when projectile item hits wall or a wall is hit with melee attack
 - `ItemComponent:getJammed()`
-- `ItemComponent:getMultiple()`	Get minimum count of items for splitting stacks
-- `ItemComponent:getPrimaryAction()`	Get name of the component to trigger when item is clicked in the attack panel
+- `ItemComponent:getMultiple()`: Get minimum count of items for splitting stacks
+- `ItemComponent:getPrimaryAction()`: Get name of the component to trigger when item is clicked in the attack panel
 - `ItemComponent:getProjectileRotationSpeed()`
 - `ItemComponent:getProjectileRotationX()`
 - `ItemComponent:getProjectileRotationY()`
 - `ItemComponent:getProjectileRotationZ()`
-- `ItemComponent:getSecondaryAction()`	Get name of the component to trigger when it’s secondary action is used
-- `ItemComponent:getSharpProjectile()`	Get whether the item sticks to monsters on impact when thrown
+- `ItemComponent:getSecondaryAction()`: Get name of the component to trigger when it’s secondary action is used
+- `ItemComponent:getSharpProjectile()`: Get whether the item sticks to monsters on impact when thrown
 - `ItemComponent:getStackSize()`
-- `ItemComponent:getStackable()`	Get whether the item is stackable
+- `ItemComponent:getStackable()`: Get whether the item is stackable
 - `ItemComponent:getTotalWeight()`
-- `ItemComponent:getUiName()`	Get the name shown to the player
-- `ItemComponent:getWeight()`	Get weight of the item in kilograms
+- `ItemComponent:getUiName()`: Get the name shown to the player
+- `ItemComponent:getWeight()`: Get weight of the item in kilograms
 - `ItemComponent:hasTrait(trait)`
 - `ItemComponent:removeTrait(trait)`
-- `ItemComponent:setAchievement(string)`	Set achievement unlocked when the item is first picked up
-- `ItemComponent:setArmorSet(string)`	Set the name of the armor set the item belongs to
+- `ItemComponent:setAchievement(string)`: Set achievement unlocked when the item is first picked up
+- `ItemComponent:setArmorSet(string)`: Set the name of the armor set the item belongs to
 - `ItemComponent:setCharges(number)`
 - `ItemComponent:setConvertToItemOnImpact(string)`
-- `ItemComponent:setDescription(string)`	Set textual description of the item
-- `ItemComponent:setFitContainer(boolean)`	Set whether the item fits inside containers such as sacks or wooden boxes (default true)
+- `ItemComponent:setDescription(string)`: Set textual description of the item
+- `ItemComponent:setFitContainer(boolean)`: Set whether the item fits inside containers such as sacks or wooden boxes (default true)
 - `ItemComponent:setFragile(boolean)`
 - `ItemComponent:setFuel(number)`
 - `ItemComponent:setGameEffect(string)`
-- `ItemComponent:setGfxAtlas(string)`	Set filename of the icon texture
-- `ItemComponent:setGfxIndex(number)`	Set index of icon in texture atlas
-- `ItemComponent:setGfxIndexInHand(number)`	Set index of in-hand icon
-- `ItemComponent:setGfxIndexPowerAttack(number)`	Set index of charging power attack icon
-- `ItemComponent:setImpactSound(string)`	Set sound which is played when projectile item hits wall or a wall is hit with melee attack
+- `ItemComponent:setGfxAtlas(string)`: Set filename of the icon texture
+- `ItemComponent:setGfxIndex(number)`: Set index of icon in texture atlas
+- `ItemComponent:setGfxIndexInHand(number)`: Set index of in-hand icon
+- `ItemComponent:setGfxIndexPowerAttack(number)`: Set index of charging power attack icon
+- `ItemComponent:setImpactSound(string)`: Set sound which is played when projectile item hits wall or a wall is hit with melee attack
 - `ItemComponent:setJammed(boolean)`
-- `ItemComponent:setMultiple(number)`	Set minimum count of items for splitting stacks
-- `ItemComponent:setPrimaryAction(string)`	Set name of the component to trigger when item is clicked in the attack panel
+- `ItemComponent:setMultiple(number)`: Set minimum count of items for splitting stacks
+- `ItemComponent:setPrimaryAction(string)`: Set name of the component to trigger when item is clicked in the attack panel
 - `ItemComponent:setProjectileRotationSpeed(number)`
 - `ItemComponent:setProjectileRotationX(number)`
 - `ItemComponent:setProjectileRotationY(number)`
 - `ItemComponent:setProjectileRotationZ(number)`
-- `ItemComponent:setSecondaryAction(string)`	Set name of the component to trigger when it’s secondary action is used
-- `ItemComponent:setSharpProjectile(boolean)`	Set whether the item sticks to monsters on impact when thrown
+- `ItemComponent:setSecondaryAction(string)`: Set name of the component to trigger when it’s secondary action is used
+- `ItemComponent:setSharpProjectile(boolean)`: Set whether the item sticks to monsters on impact when thrown
 - `ItemComponent:setStackSize(count)`
-- `ItemComponent:setStackable(boolean)`	Set whether the item is stackable
+- `ItemComponent:setStackable(boolean)`: Set whether the item is stackable
 - `ItemComponent:setTraits(traits)`
-- `ItemComponent:setUiName(string)`	Set the name shown to the player
-- `ItemComponent:setWeight(number)`	Set weight of the item in kilograms
+- `ItemComponent:setUiName(string)`: Set the name shown to the player
+- `ItemComponent:setWeight(number)`: Set weight of the item in kilograms
 - `ItemComponent:updateBoundingBox()`
 - `ItemComponent.onThrowAttackHitMonster(self, monster)`
 - `ItemComponent.onEquipItem(self, champion, slot)`
@@ -1634,33 +1713,33 @@ Holds parameters of a rendering material. Materials can only be accessed from ma
 
 Implements melee attack action for items. Melee attacks can hit and damage a single target in front of the party.
 
-- `MeleeAttackComponent:getAccuracy()`	Get optional accuracy bonus
-- `MeleeAttackComponent:getAttackPower()`	Get attack power of the attack
-- `MeleeAttackComponent:getAttackSound()`	Get name of the sound effect to play (default `swipe`)
-- `MeleeAttackComponent:getBaseDamageStat()`	Get base statistic used for computing damage modifier (default `strength`)
+- `MeleeAttackComponent:getAccuracy()`: Get optional accuracy bonus
+- `MeleeAttackComponent:getAttackPower()`: Get attack power of the attack
+- `MeleeAttackComponent:getAttackSound()`: Get name of the sound effect to play (default `swipe`)
+- `MeleeAttackComponent:getBaseDamageStat()`: Get base statistic used for computing damage modifier (default `strength`)
 - `MeleeAttackComponent:getCameraShake()`
 - `MeleeAttackComponent:getCauseCondition()`
 - `MeleeAttackComponent:getConditionChance()`
-- `MeleeAttackComponent:getDamageType()`	Get damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
-- `MeleeAttackComponent:getPierce()`	Get how many points of armor is bypassed by the attack
-- `MeleeAttackComponent:getReachWeapon()`	Get a boolean flag, if enabled the weapon can be used to attack from the backrow
+- `MeleeAttackComponent:getDamageType()`: Get damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
+- `MeleeAttackComponent:getPierce()`: Get how many points of armor is bypassed by the attack
+- `MeleeAttackComponent:getReachWeapon()`: Get a boolean flag, if enabled the weapon can be used to attack from the backrow
 - `MeleeAttackComponent:getRequiredLevel()`
 - `MeleeAttackComponent:getSkill()`
-- `MeleeAttackComponent:getSwipe()`	Get name of the swipe animation to play (default `horizontal`)
+- `MeleeAttackComponent:getSwipe()`: Get name of the swipe animation to play (default `horizontal`)
 - `MeleeAttackComponent:getUnarmedAttack()`
-- `MeleeAttackComponent:setAccuracy(number)`	Set optional accuracy bonus
-- `MeleeAttackComponent:setAttackPower(number)`	Set attack power of the attack
-- `MeleeAttackComponent:setAttackSound(string)`	Set name of the sound effect to play (default `swipe`)
-- `MeleeAttackComponent:setBaseDamageStat(string)`	Set base statistic used for computing damage modifier (default `strength`)
+- `MeleeAttackComponent:setAccuracy(number)`: Set optional accuracy bonus
+- `MeleeAttackComponent:setAttackPower(number)`: Set attack power of the attack
+- `MeleeAttackComponent:setAttackSound(string)`: Set name of the sound effect to play (default `swipe`)
+- `MeleeAttackComponent:setBaseDamageStat(string)`: Set base statistic used for computing damage modifier (default `strength`)
 - `MeleeAttackComponent:setCameraShake(boolean)`
 - `MeleeAttackComponent:setCauseCondition(string)`
 - `MeleeAttackComponent:setConditionChance(number)`
-- `MeleeAttackComponent:setDamageType(string)`	Set damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
-- `MeleeAttackComponent:setPierce(number)`	Set how many points of armor is bypassed by the attack
-- `MeleeAttackComponent:setReachWeapon(boolean)`	Set a boolean flag, if enabled the weapon can be used to attack from the backrow
+- `MeleeAttackComponent:setDamageType(string)`: Set damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
+- `MeleeAttackComponent:setPierce(number)`: Set how many points of armor is bypassed by the attack
+- `MeleeAttackComponent:setReachWeapon(boolean)`: Set a boolean flag, if enabled the weapon can be used to attack from the backrow
 - `MeleeAttackComponent:setRequiredLevel(number)`
 - `MeleeAttackComponent:setSkill(string)`
-- `MeleeAttackComponent:setSwipe(string)`	Set name of the swipe animation to play (default `horizontal`)
+- `MeleeAttackComponent:setSwipe(string)`: Set name of the swipe animation to play (default `horizontal`)
 - `MeleeAttackComponent:setUnarmedAttack(boolean)`
 - `MeleeAttackComponent.onPostAttack(self, champion, slot)`
 - `MeleeAttackComponent.onHitMonster(self, monster, tside, damage, champion)`
@@ -1818,7 +1897,7 @@ Makes the object a monster. Requires Model, Animation and a brain component. Mos
 - `MonsterComponent:getFlying()`
 - `MonsterComponent:getFootstepSound()`
 - `MonsterComponent:getGroupSize()`
-- `MonsterComponent:getHeadRotation()`	Get head node rotation for stun effect
+- `MonsterComponent:getHeadRotation()`: Get head node rotation for stun effect
 - `MonsterComponent:getHealth()`
 - `MonsterComponent:getHitEffect()`
 - `MonsterComponent:getHitSound()`
@@ -1862,7 +1941,7 @@ Makes the object a monster. Requires Model, Animation and a brain component. Mos
 - `MonsterComponent:setExp(number)`
 - `MonsterComponent:setFlying(boolean)`
 - `MonsterComponent:setFootstepSound(string)`
-- `MonsterComponent:setHeadRotation(vec)`	Set head node rotation for stun effect
+- `MonsterComponent:setHeadRotation(vec)`: Set head node rotation for stun effect
 - `MonsterComponent:setHealth(health)`
 - `MonsterComponent:setHitEffect(string)`
 - `MonsterComponent:setHitSound(string)`
@@ -1985,18 +2064,18 @@ Implements AI for Mosquito Swarms.
 
 Blocks movement for party and monsters. Optionally prevents placing items into obstacle’s square. Use the Health component to make the obstacle breakable.
 
-- `ObstacleComponent:getBlockItems()`	Get whether items can be dropped to obstacle’s square
-- `ObstacleComponent:getBlockMonsters()`	Get whether the obstacle blocks monster movement
-- `ObstacleComponent:getBlockParty()`	Get whether the obstacle blocks party movement
-- `ObstacleComponent:getHitEffect()`	Get particle effect to play when obstacle is hit
-- `ObstacleComponent:getHitSound()`	Get sound to play when obstacle is hit
-- `ObstacleComponent:getRepelProjectiles()`	Get whether impacted projectiles should be pushed out of obstacle’s square
-- `ObstacleComponent:setBlockItems(boolean)`	Set whether items can be dropped to obstacle’s square
-- `ObstacleComponent:setBlockMonsters(boolean)`	Set whether the obstacle blocks monster movement
-- `ObstacleComponent:setBlockParty(boolean)`	Set whether the obstacle blocks party movement
-- `ObstacleComponent:setHitEffect(string)`	Set particle effect to play when obstacle is hit
-- `ObstacleComponent:setHitSound(string)`	Set sound to play when obstacle is hit
-- `ObstacleComponent:setRepelProjectiles(boolean)`	Set whether impacted projectiles should be pushed out of obstacle’s square
+- `ObstacleComponent:getBlockItems()`: Get whether items can be dropped to obstacle’s square
+- `ObstacleComponent:getBlockMonsters()`: Get whether the obstacle blocks monster movement
+- `ObstacleComponent:getBlockParty()`: Get whether the obstacle blocks party movement
+- `ObstacleComponent:getHitEffect()`: Get particle effect to play when obstacle is hit
+- `ObstacleComponent:getHitSound()`: Get sound to play when obstacle is hit
+- `ObstacleComponent:getRepelProjectiles()`: Get whether impacted projectiles should be pushed out of obstacle’s square
+- `ObstacleComponent:setBlockItems(boolean)`: Set whether items can be dropped to obstacle’s square
+- `ObstacleComponent:setBlockMonsters(boolean)`: Set whether the obstacle blocks monster movement
+- `ObstacleComponent:setBlockParty(boolean)`: Set whether the obstacle blocks party movement
+- `ObstacleComponent:setHitEffect(string)`: Set particle effect to play when obstacle is hit
+- `ObstacleComponent:setHitSound(string)`: Set sound to play when obstacle is hit
+- `ObstacleComponent:setRepelProjectiles(boolean)`: Set whether impacted projectiles should be pushed out of obstacle’s square
 
 ## OccluderComponent (Component)
 
@@ -2011,17 +2090,17 @@ Adds a particle effect to the GameObject. A single GameObject can have multiple 
 - `ParticleComponent:fadeIn(time)`
 - `ParticleComponent:fadeOut(time)`
 - `ParticleComponent:getDebugDraw()`
-- `ParticleComponent:getDestroyObject()`	Get whether game object should be automatically destroyed when particle system is finished
-- `ParticleComponent:getDestroySelf()`	Get whether particle component should be automatically destroyed when particle system is finished
-- `ParticleComponent:getDisableSelf()`	Get whether particle component should be automatically disabled when particle system is finished
+- `ParticleComponent:getDestroyObject()`: Get whether game object should be automatically destroyed when particle system is finished
+- `ParticleComponent:getDestroySelf()`: Get whether particle component should be automatically destroyed when particle system is finished
+- `ParticleComponent:getDisableSelf()`: Get whether particle component should be automatically disabled when particle system is finished
 - `ParticleComponent:getEmitterMesh()`
 - `ParticleComponent:getParticleSystem()`
 - `ParticleComponent:getSortOffset()`
 - `ParticleComponent:restart()`
 - `ParticleComponent:setDebugDraw(boolean)`
-- `ParticleComponent:setDestroyObject(boolean)`	Set whether game object should be automatically destroyed when particle system is finished
-- `ParticleComponent:setDestroySelf(boolean)`	Set whether particle component should be automatically destroyed when particle system is finished
-- `ParticleComponent:setDisableSelf(boolean)`	Set whether particle component should be automatically disabled when particle system is finished
+- `ParticleComponent:setDestroyObject(boolean)`: Set whether game object should be automatically destroyed when particle system is finished
+- `ParticleComponent:setDestroySelf(boolean)`: Set whether particle component should be automatically destroyed when particle system is finished
+- `ParticleComponent:setDisableSelf(boolean)`: Set whether particle component should be automatically disabled when particle system is finished
 - `ParticleComponent:setEmitterMesh(modelFile)`
 - `ParticleComponent:setFadeOut(number)`
 - `ParticleComponent:setParticleSystem(name)`
@@ -2097,10 +2176,10 @@ Implements the poisoned condition for monsters. A monster with the poisoned cond
 
 Defines the collision box for projectile-object collisions. Walls, doors, monsters and the party are implicitly projectile colliders and do not need ProjectileCollider components.
 
-- `ProjectileColliderComponent:getCollisionGroup()`	Get collision group for filtering unwanted collisions (default 1)
+- `ProjectileColliderComponent:getCollisionGroup()`: Get collision group for filtering unwanted collisions (default 1)
 - `ProjectileColliderComponent:getDebugDraw()`
 - `ProjectileColliderComponent:getSize()`
-- `ProjectileColliderComponent:setCollisionGroup(number)`	Set collision group for filtering unwanted collisions (default 1)
+- `ProjectileColliderComponent:setCollisionGroup(number)`: Set collision group for filtering unwanted collisions (default 1)
 - `ProjectileColliderComponent:setDebugDraw(boolean)`
 - `ProjectileColliderComponent:setSize(size)`
 
@@ -2109,10 +2188,10 @@ Defines the collision box for projectile-object collisions. Walls, doors, monste
 Causes the object to fly towards its facing direction. When the projectile hits something its onProjectileHit hook is called.
 
 - `ProjectileComponent:getAngularVelocity()`
-- `ProjectileComponent:getAttackPower()`	Get piggy back data for projectile attacks and spells
+- `ProjectileComponent:getAttackPower()`: Get piggy back data for projectile attacks and spells
 - `ProjectileComponent:getCastByChampion()`
-- `ProjectileComponent:getCollisionMask()`	Get collision mask for filtering unwanted collisions (default 1)
-- `ProjectileComponent:getDestroyOnImpact()`	Get destroy game object on impact
+- `ProjectileComponent:getCollisionMask()`: Get collision mask for filtering unwanted collisions (default 1)
+- `ProjectileComponent:getDestroyOnImpact()`: Get destroy game object on impact
 - `ProjectileComponent:getFallingVelocity()`
 - `ProjectileComponent:getGravity()`
 - `ProjectileComponent:getHitEffect()`
@@ -2121,10 +2200,10 @@ Causes the object to fly towards its facing direction. When the projectile hits 
 - `ProjectileComponent:getVelocity()`
 - `ProjectileComponent:pushForward()`
 - `ProjectileComponent:setAngularVelocity(number)`
-- `ProjectileComponent:setAttackPower(number)`	Set piggy back data for projectile attacks and spells
+- `ProjectileComponent:setAttackPower(number)`: Set piggy back data for projectile attacks and spells
 - `ProjectileComponent:setCastByChampion(boolean)`
-- `ProjectileComponent:setCollisionMask(number)`	Set collision mask for filtering unwanted collisions (default 1)
-- `ProjectileComponent:setDestroyOnImpact(boolean)`	Set destroy game object on impact
+- `ProjectileComponent:setCollisionMask(number)`: Set collision mask for filtering unwanted collisions (default 1)
+- `ProjectileComponent:setDestroyOnImpact(boolean)`: Set destroy game object on impact
 - `ProjectileComponent:setFallingVelocity(number)`
 - `ProjectileComponent:setGravity(number)`
 - `ProjectileComponent:setHitEffect(string)`
@@ -2170,18 +2249,18 @@ Implements missile attack action for items. Missile attacks require ammo that mu
 - `RangedAttackComponent:getAmmo()`
 - `RangedAttackComponent:getAttackPower()`
 - `RangedAttackComponent:getAttackSound()`
-- `RangedAttackComponent:getBaseDamageStat()`	Get base statistic used for computing damage modifier (default `dexterity`)
-- `RangedAttackComponent:getDamageType()`	Get damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
-- `RangedAttackComponent:getProjectileItem()`	Get (optional) projectile item type that ammo is converted to when shot
+- `RangedAttackComponent:getBaseDamageStat()`: Get base statistic used for computing damage modifier (default `dexterity`)
+- `RangedAttackComponent:getDamageType()`: Get damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
+- `RangedAttackComponent:getProjectileItem()`: Get (optional) projectile item type that ammo is converted to when shot
 - `RangedAttackComponent:getRequiredLevel()`
 - `RangedAttackComponent:getSkill()`
 - `RangedAttackComponent:getSwipe()`
 - `RangedAttackComponent:setAmmo(string)`
 - `RangedAttackComponent:setAttackPower(number)`
 - `RangedAttackComponent:setAttackSound(string)`
-- `RangedAttackComponent:setBaseDamageStat(string)`	Set base statistic used for computing damage modifier (default `dexterity`)
-- `RangedAttackComponent:setDamageType(string)`	Set damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
-- `RangedAttackComponent:setProjectileItem(string)`	Set (optional) projectile item type that ammo is converted to when shot
+- `RangedAttackComponent:setBaseDamageStat(string)`: Set base statistic used for computing damage modifier (default `dexterity`)
+- `RangedAttackComponent:setDamageType(string)`: Set damage type of the attack: `physical` (default), `cold`, `fire`, `poison` or `shock`
+- `RangedAttackComponent:setProjectileItem(string)`: Set (optional) projectile item type that ammo is converted to when shot
 - `RangedAttackComponent:setRequiredLevel(number)`
 - `RangedAttackComponent:setSkill(string)`
 - `RangedAttackComponent:setSwipe(string)`
@@ -2214,12 +2293,12 @@ Custom Lua script component. The script code may be embedded inside the componen
 
 Displays a piece of text or an image in item’s tooltip.
 
-- `ScrollItemComponent:getScrollImage()`	Get image shown when the scroll is examined
-- `ScrollItemComponent:getScrollText()`	Get text shown when the scroll is examined
-- `ScrollItemComponent:getTextAlignment()`	Get text alignment, `center` or `left`
-- `ScrollItemComponent:setScrollImage(string)`	Set image shown when the scroll is examined
-- `ScrollItemComponent:setScrollText(string)`	Set text shown when the scroll is examined
-- `ScrollItemComponent:setTextAlignment(string)`	Set text alignment, `center` or `left`
+- `ScrollItemComponent:getScrollImage()`: Get image shown when the scroll is examined
+- `ScrollItemComponent:getScrollText()`: Get text shown when the scroll is examined
+- `ScrollItemComponent:getTextAlignment()`: Get text alignment, `center` or `left`
+- `ScrollItemComponent:setScrollImage(string)`: Set image shown when the scroll is examined
+- `ScrollItemComponent:setScrollText(string)`: Set text shown when the scroll is examined
+- `ScrollItemComponent:setTextAlignment(string)`: Set text alignment, `center` or `left`
 
 ## SecretComponent (Component)
 
@@ -2385,13 +2464,13 @@ Implements throw attack action for items. When thrown, a Projectile component is
 
 - `ThrowAttackComponent:getAttackPower()`
 - `ThrowAttackComponent:getAttackSound()`
-- `ThrowAttackComponent:getBaseDamageStat()`	Get base statistic used for computing damage modifier (default `strength`)
+- `ThrowAttackComponent:getBaseDamageStat()`: Get base statistic used for computing damage modifier (default `strength`)
 - `ThrowAttackComponent:getRequiredLevel()`
 - `ThrowAttackComponent:getSkill()`
 - `ThrowAttackComponent:getSwipe()`
 - `ThrowAttackComponent:setAttackPower(number)`
 - `ThrowAttackComponent:setAttackSound(string)`
-- `ThrowAttackComponent:setBaseDamageStat(string)`	Set base statistic used for computing damage modifier (default `strength`)
+- `ThrowAttackComponent:setBaseDamageStat(string)`: Set base statistic used for computing damage modifier (default `strength`)
 - `ThrowAttackComponent:setRequiredLevel(number)`
 - `ThrowAttackComponent:setSkill(string)`
 - `ThrowAttackComponent:setSwipe(string)`
@@ -2401,26 +2480,26 @@ Implements throw attack action for items. When thrown, a Projectile component is
 
 A TileDamager damages party, monsters and obstacles in the same square when activated. TileDamagers can be one shot or cause damage as long as the target stays in the same space.
 
-- `TileDamagerComponent:getAttackPower()`	Get strength of the attack
-- `TileDamagerComponent:getCameraShake()`	Get whether camera should be shaked when party is hit
-- `TileDamagerComponent:getCastByChampion()`	Get champion ordinal if the spell was cast by a champion
-- `TileDamagerComponent:getDamageFlags()`	Get special damage flags
-- `TileDamagerComponent:getDamageType()`	Get damage type of the attack: `physical`, `fire`, `cold`, `shock`, or `poison`
-- `TileDamagerComponent:getDestroyObject()`	Get whether the game object with burst spell component should be destroyed when component is triggered
+- `TileDamagerComponent:getAttackPower()`: Get strength of the attack
+- `TileDamagerComponent:getCameraShake()`: Get whether camera should be shaked when party is hit
+- `TileDamagerComponent:getCastByChampion()`: Get champion ordinal if the spell was cast by a champion
+- `TileDamagerComponent:getDamageFlags()`: Get special damage flags
+- `TileDamagerComponent:getDamageType()`: Get damage type of the attack: `physical`, `fire`, `cold`, `shock`, or `poison`
+- `TileDamagerComponent:getDestroyObject()`: Get whether the game object with burst spell component should be destroyed when component is triggered
 - `TileDamagerComponent:getRepeatCount()`
 - `TileDamagerComponent:getRepeatDelay()`
-- `TileDamagerComponent:getScreenEffect()`	Get name of the on-screen particle effect to play when party is hit
-- `TileDamagerComponent:getSound()`	Get name of the sound effect to play
-- `TileDamagerComponent:setAttackPower(number)`	Set strength of the attack
-- `TileDamagerComponent:setCameraShake(boolean)`	Set whether camera should be shaked when party is hit
-- `TileDamagerComponent:setCastByChampion(number)`	Set champion ordinal if the spell was cast by a champion
-- `TileDamagerComponent:setDamageFlags(number)`	Set special damage flags
-- `TileDamagerComponent:setDamageType(string)`	Set damage type of the attack: `physical`, `fire`, `cold`, `shock`, or `poison`
-- `TileDamagerComponent:setDestroyObject(number)`	Set whether the game object with burst spell component should be destroyed when component is triggered
+- `TileDamagerComponent:getScreenEffect()`: Get name of the on-screen particle effect to play when party is hit
+- `TileDamagerComponent:getSound()`: Get name of the sound effect to play
+- `TileDamagerComponent:setAttackPower(number)`: Set strength of the attack
+- `TileDamagerComponent:setCameraShake(boolean)`: Set whether camera should be shaked when party is hit
+- `TileDamagerComponent:setCastByChampion(number)`: Set champion ordinal if the spell was cast by a champion
+- `TileDamagerComponent:setDamageFlags(number)`: Set special damage flags
+- `TileDamagerComponent:setDamageType(string)`: Set damage type of the attack: `physical`, `fire`, `cold`, `shock`, or `poison`
+- `TileDamagerComponent:setDestroyObject(number)`: Set whether the game object with burst spell component should be destroyed when component is triggered
 - `TileDamagerComponent:setRepeatCount(number)`
 - `TileDamagerComponent:setRepeatDelay(number)`
-- `TileDamagerComponent:setScreenEffect(string)`	Set name of the on-screen particle effect to play when party is hit
-- `TileDamagerComponent:setSound()`	Set name of the sound effect to play
+- `TileDamagerComponent:setScreenEffect(string)`: Set name of the on-screen particle effect to play when party is hit
+- `TileDamagerComponent:setSound()`: Set name of the sound effect to play
 - `TileDamagerComponent.onHitChampion(self, champion)`
 - `TileDamagerComponent.onHitMonster(self, monster)`
 - `TileDamagerComponent.onHitObstacle(self, obstacle)`
@@ -2452,10 +2531,10 @@ Timer component triggers its onActivate hook periodically. The timer inverval or
 
 Implements the animation and behavior of tiny critters such as beach crabs.
 
-- `TinyCritterControllerComponent:getSpeed()`	Get speed
-- `TinyCritterControllerComponent:getStrafing()`	Get strafing (true or false)
-- `TinyCritterControllerComponent:setSpeed(number)`	Set speed
-- `TinyCritterControllerComponent:setStrafing(boolean)`	Set strafing (true or false)
+- `TinyCritterControllerComponent:getSpeed()`: Get speed
+- `TinyCritterControllerComponent:getStrafing()`: Get strafing (true or false)
+- `TinyCritterControllerComponent:setSpeed(number)`: Set speed
+- `TinyCritterControllerComponent:setStrafing(boolean)`: Set strafing (true or false)
 
 ## ToadBrainComponent (BrainComponent)
 
@@ -2472,8 +2551,8 @@ Controller for torch holders. Requires Socket, Light, Sound and Particle compone
 
 Makes an item a torch that burns until it runs out of fuel.
 
-- `TorchItemComponent:getFuel()`	Get fuel for torches and other light sources
-- `TorchItemComponent:setFuel(number)`	Set fuel for torches and other light sources
+- `TorchItemComponent:getFuel()`: Get fuel for torches and other light sources
+- `TorchItemComponent:setFuel(number)`: Set fuel for torches and other light sources
 
 ## TricksterBrainComponent (BrainComponent)
 
@@ -2510,14 +2589,14 @@ Makes an item Usable by right-clicking on it.
 
 - `UsableItemComponent:getCanBeUsedByDeadChampion()`
 - `UsableItemComponent:getEmptyItem()`
-- `UsableItemComponent:getNutritionValue()`	Get nutrition value, i.e. how much food is restored when item is consumed (range 0-1000)
+- `UsableItemComponent:getNutritionValue()`: Get nutrition value, i.e. how much food is restored when item is consumed (range 0-1000)
 - `UsableItemComponent:getRequirements()`
-- `UsableItemComponent:getSound()`	Get sound to play when item is consumed
+- `UsableItemComponent:getSound()`: Get sound to play when item is consumed
 - `UsableItemComponent:setCanBeUsedByDeadChampion(boolean)`
 - `UsableItemComponent:setEmptyItem(string)`
-- `UsableItemComponent:setNutritionValue(number)`	Set nutrition value, i.e. how much food is restored when item is consumed (range 0-1000)
+- `UsableItemComponent:setNutritionValue(number)`: Set nutrition value, i.e. how much food is restored when item is consumed (range 0-1000)
 - `UsableItemComponent:setRequirements(table)`
-- `UsableItemComponent:setSound(string)`	Set sound to play when item is consumed
+- `UsableItemComponent:setSound(string)`: Set sound to play when item is consumed
 - `UsableItemComponent.onUseItem(self, champion)`
 
 ## ViperRootBrainComponent (BrainComponent)
@@ -2583,3 +2662,471 @@ Implements AI for Xeloroids.
 ## ZarchtonBrainComponent (BrainComponent)
 
 Implements AI for Zarchtons.
+
+<!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
+
+# Item List
+
+- [grimrock.net "Item listing for Console"](http://www.grimrock.net/forum/viewtopic.php?t=1991)
+
+```lua
+spawn("wooden_box")
+spawn "wooden_box"
+```
+
+| Category         | Name                        |
+| ---------------- | --------------------------- |
+| container        | `sack`                      |
+| container        | `wooden_box`                |
+| crafting         | `mortar`                    |
+| decoration       | `floor_corpse`              |
+| dungeon elements | `alcove`                    |
+| dungeon elements | `altar`                     |
+| dungeon elements | `barrel_crate_block`        |
+| dungeon elements | `blocker`                   |
+| dungeon elements | `catacomb_empty`            |
+| dungeon elements | `catacomb_skeleton_down`    |
+| dungeon elements | `catacomb_skeleton_up`      |
+| dungeon elements | `cave_in_ceiling`           |
+| dungeon elements | `cave_in`                   |
+| dungeon elements | `ceiling_shaft`             |
+| dungeon elements | `counter`                   |
+| dungeon elements | `daemon_head_eye_slots`     |
+| dungeon elements | `daemon_head`               |
+| dungeon elements | `dragon_statue`             |
+| dungeon elements | `dungeon_ceiling_root_1`    |
+| dungeon elements | `dungeon_ceiling_root_2`    |
+| dungeon elements | `dungeon_ceiling_root_3`    |
+| dungeon elements | `dungeon_ivy_1`             |
+| dungeon elements | `dungeon_ivy_2`             |
+| dungeon elements | `dungeon_spider_web_1`      |
+| dungeon elements | `dungeon_spider_web_2`      |
+| dungeon elements | `dungeon_spider_web_3`      |
+| dungeon elements | `dungeon_spider_web_4`      |
+| dungeon elements | `dungeon_wall_dirt_1`       |
+| dungeon elements | `dungeon_wall_dirt_2`       |
+| dungeon elements | `eye_socket_left`           |
+| dungeon elements | `eye_socket_right`          |
+| dungeon elements | `floor_corpse`              |
+| dungeon elements | `floor_dirt`                |
+| dungeon elements | `floor_drainage`            |
+| dungeon elements | `fountain`                  |
+| dungeon elements | `fx`                        |
+| dungeon elements | `gladiator_statue_axe`      |
+| dungeon elements | `gladiator_statue_flail`    |
+| dungeon elements | `gladiator_statue_spear`    |
+| dungeon elements | `gladiator_statue_sword`    |
+| dungeon elements | `gobelin`                   |
+| dungeon elements | `goromorg_fourway`          |
+| dungeon elements | `goromorg_statue`           |
+| dungeon elements | `healing_crystal`           |
+| dungeon elements | `iron_gate`                 |
+| dungeon elements | `lever`                     |
+| dungeon elements | `lock_gear`                 |
+| dungeon elements | `lock_golden`               |
+| dungeon elements | `lock_ornate`               |
+| dungeon elements | `lock_prison`               |
+| dungeon elements | `lock_round`                |
+| dungeon elements | `lock`                      |
+| dungeon elements | `map_marker`                |
+| dungeon elements | `metal_door`                |
+| dungeon elements | `metal_junk_block`          |
+| dungeon elements | `mouth_socket`              |
+| dungeon elements | `pillar`                    |
+| dungeon elements | `pit`                       |
+| dungeon elements | `portcullis`                |
+| dungeon elements | `pressure_plate_hidden`     |
+| dungeon elements | `pressure_plate`            |
+| dungeon elements | `prison_bench`              |
+| dungeon elements | `prison_ceiling_lamp`       |
+| dungeon elements | `prison_door`               |
+| dungeon elements | `prison_wall_1`             |
+| dungeon elements | `prison_wall_2`             |
+| dungeon elements | `prison_wall_3`             |
+| dungeon elements | `prison_wall_4`             |
+| dungeon elements | `prison_wall_5`             |
+| dungeon elements | `prison_wall_6`             |
+| dungeon elements | `receptor_hidden`           |
+| dungeon elements | `receptor`                  |
+| dungeon elements | `secret_button_large`       |
+| dungeon elements | `secret_button_small`       |
+| dungeon elements | `secret_button_tiny`        |
+| dungeon elements | `secret`                    |
+| dungeon elements | `sliding_wall`              |
+| dungeon elements | `spawner`                   |
+| dungeon elements | `spider_eggs`               |
+| dungeon elements | `stairs_down`               |
+| dungeon elements | `stairs_up`                 |
+| dungeon elements | `stone_seal`                |
+| dungeon elements | `teleporter`                |
+| dungeon elements | `temple_ceiling_lamp`       |
+| dungeon elements | `temple_door`               |
+| dungeon elements | `temple_glass_wall_1`       |
+| dungeon elements | `temple_glass_wall_2`       |
+| dungeon elements | `temple_glass_wall_3`       |
+| dungeon elements | `temple_mosaic_wall_1`      |
+| dungeon elements | `temple_mosaic_wall_2`      |
+| dungeon elements | `timer`                     |
+| dungeon elements | `torch_holder`              |
+| dungeon elements | `wall_button`               |
+| dungeon elements | `wall_drainage`             |
+| dungeon elements | `wall_grating`              |
+| dungeon elements | `wall_moss`                 |
+| dungeon elements | `wall_painted`              |
+| dungeon elements | `wall_text_long`            |
+| dungeon elements | `wall_text`                 |
+| dungeon elements | `wooden_gate_locked`        |
+| dungeon elements | `wooden_gate`               |
+| food             | `baked_maggot`              |
+| food             | `boiled_beetle`             |
+| food             | `grim_cap`                  |
+| food             | `herder_cap`                |
+| food             | `ice_lizard_steak`          |
+| food             | `mole_jerky`                |
+| food             | `pitroot_bread`             |
+| food             | `rat_shank`                 |
+| food             | `snail_slice`               |
+| hand - casting   | `golden_orb`                |
+| hand - casting   | `lightning_rod`             |
+| hand - casting   | `magic_orb`                 |
+| hand - casting   | `shaman_staff`              |
+| hand - casting   | `whitewood_wand`            |
+| hand - close     | `assassin_dagger`           |
+| hand - close     | `battle_axe`                |
+| hand - close     | `crossbow`                  |
+| hand - close     | `cudgel`                    |
+| hand - close     | `dagger`                    |
+| hand - close     | `dismantler`                |
+| hand - close     | `fire_blade`                |
+| hand - close     | `fist_dagger`               |
+| hand - close     | `flail`                     |
+| hand - close     | `icefall_hammer`            |
+| hand - close     | `knife`                     |
+| hand - close     | `knoffer`                   |
+| hand - close     | `long_sword`                |
+| hand - close     | `machete`                   |
+| hand - close     | `nex_sword`                 |
+| hand - close     | `power_weapon`              |
+| hand - close     | `short_bow`                 |
+| hand - close     | `shuriken`                  |
+| hand - close     | `throwing_knife`            |
+| hand - close     | `venom_edge`                |
+| hand - close     | `warhammer`                 |
+| hand - ranged    | `arrow`                     |
+| hand - ranged    | `cold_arrow`                |
+| hand - ranged    | `cold_quarrel`              |
+| hand - ranged    | `fire_arrow`                |
+| hand - ranged    | `fire_quarrel`              |
+| hand - ranged    | `poison_arrow`              |
+| hand - ranged    | `poison_quarrel`            |
+| hand - ranged    | `quarrel`                   |
+| hand - ranged    | `shock_arrow`               |
+| hand - ranged    | `shock_quarrel`             |
+| hand - ranged    | `sling`                     |
+| hand - shield    | `heavy_shield`              |
+| hand - thrown    | `fire_bomb`                 |
+| hand - thrown    | `frost_bomb`                |
+| hand - thrown    | `poison_bomb`               |
+| hand - thrown    | `rock`                      |
+| hand - thrown    | `shock_bomb`                |
+| healing          | `healing_crystal`           |
+| herb             | `blooddrop_blossom`         |
+| herb             | `cave_nettle`               |
+| herb             | `milkreed`                  |
+| herb             | `tar_bead`                  |
+| keys             | `brass_key`                 |
+| keys             | `gold_key`                  |
+| keys             | `iron_key`                  |
+| keys             | `ornate_key`                |
+| keys             | `prison_key`                |
+| keys             | `round_key`                 |
+| misc             | `blue_gem`                  |
+| misc             | `flask`                     |
+| misc             | `golden_figure`             |
+| misc             | `green_gem`                 |
+| misc             | `skull`                     |
+| monster          | `crab`                      |
+| monster          | `crowern`                   |
+| monster          | `cube`                      |
+| monster          | `goromorg`                  |
+| monster          | `green_slime`               |
+| monster          | `herder_big`                |
+| monster          | `herder_small`              |
+| monster          | `herder_swarm`              |
+| monster          | `herder`                    |
+| monster          | `ice_lizard`                |
+| monster          | `ogre`                      |
+| monster          | `scavenger_swarm`           |
+| monster          | `scavenger`                 |
+| monster          | `shrakk_torr`               |
+| monster          | `skeleton_archer_patrol`    |
+| monster          | `skeleton_archer`           |
+| monster          | `skeleton_patrol`           |
+| monster          | `skeleton_warrior`          |
+| monster          | `skeleton`                  |
+| monster          | `snail`                     |
+| monster          | `spider_boss`               |
+| monster          | `spider`                    |
+| monster          | `tentacles`                 |
+| monster          | `uggardian`                 |
+| monster          | `warden`                    |
+| monster          | `wyvern`                    |
+| potion           | `potion_cure_disease`       |
+| potion           | `potion_energy`             |
+| potion           | `potion_healing`            |
+| scroll           | `scroll_darkness`           |
+| scroll           | `scroll_enchant_fire_arrow` |
+| scroll           | `scroll_fire_shield`        |
+| scroll           | `scroll_fireball`           |
+| scroll           | `scroll_fireburst`          |
+| scroll           | `scroll_frostbolt`          |
+| scroll           | `scroll_invisibility`       |
+| scroll           | `scroll_poison_bolt`        |
+| scroll           | `scroll_poison_shield`      |
+| scroll           | `scroll_shock`              |
+| set - chitin     | `chitin_boots`              |
+| set - chitin     | `chitin_mail`               |
+| set - leather    | `leather_boots`             |
+| set - leather    | `leather_cap`               |
+| set - leather    | `leather_gloves`            |
+| set - leather    | `leather_greaves`           |
+| set - leather    | `leather_pants`             |
+| set - lurker     | `lurker_boots`              |
+| set - lurker     | `lurker_pants`              |
+| set - plate      | `plate_boots`               |
+| set - plate      | `plate_cuirass`             |
+| set - plate      | `plate_gauntlets`           |
+| set - plate      | `plate_greaves`             |
+| set - ring       | `ring_boots`                |
+| set - ring       | `ring_gauntlets`            |
+| set - ring       | `ring_greaves`              |
+| set - ring       | `ring_mail`                 |
+| set - valor      | `boots_valor`               |
+| set - valor      | `cuirass_valor`             |
+| set - valor      | `gauntlets_valor`           |
+| set - valor      | `greaves_valor`             |
+| set - valor      | `helmet_valor`              |
+| set - valor      | `shield_valor`              |
+| tomes            | `tome_fire`                 |
+| tomes            | `tome_wisdom`               |
+| unsorted         | `ancient_apparatus`         |
+| unsorted         | `ancient_axe`               |
+| unsorted         | `arrow`                     |
+| unsorted         | `assassin_dagger`           |
+| unsorted         | `baked_maggot`              |
+| unsorted         | `battle_axe`                |
+| unsorted         | `blooddrop_blossom`         |
+| unsorted         | `blue_gem`                  |
+| unsorted         | `blueberry_pie`             |
+| unsorted         | `boiled_beetle`             |
+| unsorted         | `bone_amulet`               |
+| unsorted         | `boots_valor`               |
+| unsorted         | `brace_fortitude`           |
+| unsorted         | `bracelet_tirin`            |
+| unsorted         | `brass_key`                 |
+| unsorted         | `cave_nettle`               |
+| unsorted         | `chitin_boots`              |
+| unsorted         | `chitin_greaves`            |
+| unsorted         | `chitin_mail`               |
+| unsorted         | `chitin_mask`               |
+| unsorted         | `circlet_war`               |
+| unsorted         | `cold_arrow`                |
+| unsorted         | `cold_quarrel`              |
+| unsorted         | `compass`                   |
+| unsorted         | `conjurers_hat`             |
+| unsorted         | `crossbow`                  |
+| unsorted         | `cudgel`                    |
+| unsorted         | `cuirass_valor`             |
+| unsorted         | `cutlass`                   |
+| unsorted         | `dagger`                    |
+| unsorted         | `dismantler`                |
+| unsorted         | `diviner_cloak`             |
+| unsorted         | `doublet`                   |
+| unsorted         | `fire_arrow`                |
+| unsorted         | `fire_blade_empty`          |
+| unsorted         | `fire_blade`                |
+| unsorted         | `fire_bomb`                 |
+| unsorted         | `fire_quarrel`              |
+| unsorted         | `fire_torc`                 |
+| unsorted         | `fist_dagger`               |
+| unsorted         | `flail`                     |
+| unsorted         | `flarefeather_cap`          |
+| unsorted         | `flask`                     |
+| unsorted         | `frost_bomb`                |
+| unsorted         | `frostbite_necklace`        |
+| unsorted         | `full_helmet`               |
+| unsorted         | `gauntlets_valor`           |
+| unsorted         | `gear_key`                  |
+| unsorted         | `gear_necklace`             |
+| unsorted         | `gold_key`                  |
+| unsorted         | `golden_chalice`            |
+| unsorted         | `golden_crown`              |
+| unsorted         | `golden_dragon`             |
+| unsorted         | `golden_figure`             |
+| unsorted         | `golden_goromorg`           |
+| unsorted         | `golden_orb`                |
+| unsorted         | `great_axe`                 |
+| unsorted         | `greaves_valor`             |
+| unsorted         | `green_gem`                 |
+| unsorted         | `grim_cap`                  |
+| unsorted         | `hand_axe`                  |
+| unsorted         | `hardstone_bracelet`        |
+| unsorted         | `heavy_shield`              |
+| unsorted         | `helmet_valor`              |
+| unsorted         | `herder_cap`                |
+| unsorted         | `hide_vest`                 |
+| unsorted         | `huntsman_cloak`            |
+| unsorted         | `ice_lizard_steak`          |
+| unsorted         | `icefall_hammer`            |
+| unsorted         | `iron_basinet`              |
+| unsorted         | `iron_key`                  |
+| unsorted         | `knife`                     |
+| unsorted         | `knoffer`                   |
+| unsorted         | `leather_boots`             |
+| unsorted         | `leather_brigandine`        |
+| unsorted         | `leather_cap`               |
+| unsorted         | `leather_gloves`            |
+| unsorted         | `leather_greaves`           |
+| unsorted         | `leather_pants`             |
+| unsorted         | `legionary_helmet`          |
+| unsorted         | `legionary_shield`          |
+| unsorted         | `legionary_spear`           |
+| unsorted         | `lightning_blade_empty`     |
+| unsorted         | `lightning_blade`           |
+| unsorted         | `lightning_rod_empty`       |
+| unsorted         | `lightning_rod`             |
+| unsorted         | `loincloth`                 |
+| unsorted         | `long_sword`                |
+| unsorted         | `longbow`                   |
+| unsorted         | `lurker_boots`              |
+| unsorted         | `lurker_hood`               |
+| unsorted         | `lurker_pants`              |
+| unsorted         | `lurker_vest`               |
+| unsorted         | `machete`                   |
+| unsorted         | `machine_junk1`             |
+| unsorted         | `machine_junk2`             |
+| unsorted         | `machine_junk3`             |
+| unsorted         | `machine_junk4`             |
+| unsorted         | `machine_junk5`             |
+| unsorted         | `machine_junk6`             |
+| unsorted         | `machine_part_east`         |
+| unsorted         | `machine_part_north`        |
+| unsorted         | `machine_part_south`        |
+| unsorted         | `machine_part_west`         |
+| unsorted         | `magic_orb`                 |
+| unsorted         | `milkreed`                  |
+| unsorted         | `mole_jerky`                |
+| unsorted         | `mortar`                    |
+| unsorted         | `nex_sword`                 |
+| unsorted         | `nomad_boots`               |
+| unsorted         | `nomad_mittens`             |
+| unsorted         | `note`                      |
+| unsorted         | `ogre_hammer`               |
+| unsorted         | `ornate_key`                |
+| unsorted         | `peasant_breeches`          |
+| unsorted         | `peasant_cap`               |
+| unsorted         | `peasant_tunic`             |
+| unsorted         | `pit_gauntlets`             |
+| unsorted         | `pitroot_bread`             |
+| unsorted         | `plate_boots`               |
+| unsorted         | `plate_cuirass`             |
+| unsorted         | `plate_gauntlets`           |
+| unsorted         | `plate_greaves`             |
+| unsorted         | `pointy_shoes`              |
+| unsorted         | `poison_arrow`              |
+| unsorted         | `poison_bomb`               |
+| unsorted         | `poison_quarrel`            |
+| unsorted         | `potion_cure_disease`       |
+| unsorted         | `potion_cure_poison`        |
+| unsorted         | `potion_energy`             |
+| unsorted         | `potion_healing`            |
+| unsorted         | `potion_poison`             |
+| unsorted         | `potion_rage`               |
+| unsorted         | `potion_speed`              |
+| unsorted         | `power_weapon`              |
+| unsorted         | `prison_key`                |
+| unsorted         | `quarrel`                   |
+| unsorted         | `rat_shank`                 |
+| unsorted         | `red_gem`                   |
+| unsorted         | `remains_of_toorum`         |
+| unsorted         | `ring_boots`                |
+| unsorted         | `ring_gauntlets`            |
+| unsorted         | `ring_greaves`              |
+| unsorted         | `ring_mail`                 |
+| unsorted         | `rock`                      |
+| unsorted         | `rotten_pitroot_bread`      |
+| unsorted         | `round_key`                 |
+| unsorted         | `round_shield`              |
+| unsorted         | `sack`                      |
+| unsorted         | `sandals`                   |
+| unsorted         | `scaled_cloak`              |
+| unsorted         | `scroll_darkness`           |
+| unsorted         | `scroll_enchant_fire_arrow` |
+| unsorted         | `scroll_fire_shield`        |
+| unsorted         | `scroll_fireball`           |
+| unsorted         | `scroll_fireburst`          |
+| unsorted         | `scroll_frost_shield`       |
+| unsorted         | `scroll_frostbolt`          |
+| unsorted         | `scroll_ice_shards`         |
+| unsorted         | `scroll_invisibility`       |
+| unsorted         | `scroll_light`              |
+| unsorted         | `scroll_lightning_bolt`     |
+| unsorted         | `scroll_poison_bolt`        |
+| unsorted         | `scroll_poison_cloud`       |
+| unsorted         | `scroll_poison_shield`      |
+| unsorted         | `scroll_shock_shield`       |
+| unsorted         | `scroll_shock`              |
+| unsorted         | `scroll`                    |
+| unsorted         | `serpent_bracer`            |
+| unsorted         | `shaman_staff`              |
+| unsorted         | `shield_elements`           |
+| unsorted         | `shield_valor`              |
+| unsorted         | `shock_arrow`               |
+| unsorted         | `shock_bomb`                |
+| unsorted         | `shock_quarrel`             |
+| unsorted         | `short_bow`                 |
+| unsorted         | `shuriken`                  |
+| unsorted         | `silk_hose`                 |
+| unsorted         | `slime_bell`                |
+| unsorted         | `tar_bead`                  |
+| unsorted         | `tattered_cloak`            |
+| unsorted         | `throwing_axe`              |
+| unsorted         | `throwing_knife`            |
+| unsorted         | `tome_fire`                 |
+| unsorted         | `tome_health`               |
+| unsorted         | `tome_wisdom`               |
+| unsorted         | `torch_everburning`         |
+| unsorted         | `torch`                     |
+| unsorted         | `venom_edge_empty`          |
+| unsorted         | `venom_edge`                |
+| unsorted         | `warhammer`                 |
+| unsorted         | `water_flask`               |
+| unsorted         | `whitewood_wand`            |
+| unsorted         | `wooden_box`                |
+| unsorted         | `zhandul_orb`               |
+| utility          | `compass`                   |
+| utility          | `torch`                     |
+| warn             | `hide_vest`                 |
+| warn             | `loincloth`                 |
+| warn             | `peasant_cap`               |
+| warn             | `peasant_tunic`             |
+| warn - back      | `diviner_cloak`             |
+| warn - back      | `huntsman_cloak`            |
+| warn - back      | `scaled_cloak`              |
+| warn - back      | `tattered_cloak`            |
+| warn - bracers   | `brace_fortitude`           |
+| warn - bracers   | `bracelet_tirin`            |
+| warn - bracers   | `hardstone_bracelet`        |
+| warn - bracers   | `peasant_breeches`          |
+| warn - bracers   | `serpent_bracer`            |
+| warn - feet      | `nomad_boots`               |
+| warn - feet      | `pointy_shoes`              |
+| warn - feet      | `sandals`                   |
+| warn - hand      | `legionary_helmet`          |
+| warn - hands     | `nomad_mittens`             |
+| warn - head      | `conjurers_hat`             |
+| warn - head      | `full_helmet`               |
+| warn - legs      | `silk_hose`                 |
+| warn - neck      | `fire_torc`                 |
+| warn - neck      | `frostbite_necklace`        |
+| warn - neck      | `spirit_mirror_pendant`     |
