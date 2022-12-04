@@ -1,5 +1,5 @@
 
-## Scripting Reference
+# Scripting Reference
 
 <!--
 Contents
@@ -196,7 +196,7 @@ In addition the following standard Lua functions can be used:
 
 See the Lua reference manual for more details about their usage.
 
-### Entities and Components
+## Entities and Components
 
 Entities, game objects (or just `go`) are the objects spawned in the dungeon either by placing them in the dungeon using the Dungeon Editor or spawning them dynamically from a script.
 
@@ -234,63 +234,63 @@ Some special objects have no direct representation of them in the dungeon. For e
 
 - `party.party:getChampion(1):setName("Jakob")`
 
-### Global Functions
+## Global Functions
 
-#### `print(…)`
+### `print(…)`
 
 Prints all arguments to the console.
 
-#### `iff(cond, a, b)`
+### `iff(cond, a, b)`
 
 Returns a if cond is true, otherwise returns b.
 
-#### `vec(x, y, z, w)`
+### `vec(x, y, z, w)`
 
 Returns a new vector. All components are optional and default to zero.
 
-#### `getForward(direction)`
+### `getForward(direction)`
 
 Converts direction, a number between 0 and 3 corresponding to a compass direction, to delta-x and delta-y values.
 
-#### `getDirection(dx, dy)`
+### `getDirection(dx, dy)`
 
-#### `toLocal(ox, oy, facing, x, y)`
+### `toLocal(ox, oy, facing, x, y)`
 
-#### `delayedCall(receiver, delay, msg)`
+### `delayedCall(receiver, delay, msg)`
 
-#### `spawn(object, level, x, y, facing, elevation, [id])`
+### `spawn(object, level, x, y, facing, elevation, [id])`
 
 Spawns a new object at given position on a dungeon level where x and y specify the x- and y-coordinates on the map and level is a level index. facing must be a number between 0 and 3 and it indicates the following directions: `0 = north`, `1 = east`, `2 = south`, `3 = west`. id parameter is optional. If given it must be an unique id in the context of the dungeon. If not given an unique id is automatically generated.
 
-#### `findEntity(id)`
+### `findEntity(id)`
 
 Returns an entity with given name or nil if no such entity exists.
 
-#### `hudPrint(text)`
+### `hudPrint(text)`
 
 Prints a line of text to the text area at the bottom of the screen.
 
-#### `setMouseItem(item)`
+### `setMouseItem(item)`
 
 Sets the given item as mouse item, or destroys the mouse item if item is nil.
 
-#### `getMouseItem()`
+### `getMouseItem()`
 
 Returns the `mouse item`, the item attached to the mouse pointer. If there is no mouse item, nil is returned.
 
-#### `playSound(sound)`
+### `playSound(sound)`
 
 Plays a sound effect. sound must be a name of a built-in or custom sound effect.
 
-#### `playSoundAt(sound, level, x, y)`
+### `playSoundAt(sound, level, x, y)`
 
 Plays a sound effect at given position. sound must be a name of a built-in or custom sound effect.
 
-#### `rollDamage(power)`
+### `rollDamage(power)`
 
 Returns a random amount of damage for an attack with given power.
 
-#### `damageTile(level, x, y, direction, elevation, flags, damageType, power)`
+### `damageTile(level, x, y, direction, elevation, flags, damageType, power)`
 
 Damages all creatures including the party in a given tile. direction specifies the direction of the attack for projectiles or melee attacks (`0=north`, `1=east`, `2=south`, `3=west`).
 
@@ -300,7 +300,7 @@ Damage is rolled individually for all creatures using the power as base value.
 
 See also DamageFlags.
 
-#### `shootProjectile(projectile, level, x, y, direction, speed, gravity, velocityUp, offsetX, offsetY, offsetZ, attackPower, ignoreEntity, fragile, championOrdinal)`
+### `shootProjectile(projectile, level, x, y, direction, speed, gravity, velocityUp, offsetX, offsetY, offsetZ, attackPower, ignoreEntity, fragile, championOrdinal)`
 
 Shoots a projectile item.
 
@@ -318,11 +318,11 @@ The parameters are:
 - `fragile`: a boolean flag, if set the projectile is destroyed on impact.
 - `championOrdinal`: a champion ordinal number, used for dealing experience points. This parameter is optional.
 
-### Asset Definitions
+## Asset Definitions
 
 The following functions can be used in dungeon’s init.lua script to define new assets.
 
-#### `defineAnimationEvent(desc)`
+### `defineAnimationEvent(desc)`
 
 Defines a new animation event.
 
@@ -333,7 +333,7 @@ Defines a new animation event.
 - `frame`: (optional) a frame number in the animation to attach the event to (one frame equals 1/30th of a second).
 - `normalizedTime`: (optional) normalized time of the event in range 0-1 to be used instead of frame (0 = start of animation, 1 = end of animation).
 
-#### `defineObject(desc)`
+### `defineObject(desc)`
 
 Defines a new entity type or replaces an existing definition.
 
@@ -363,7 +363,7 @@ Each component have the following fields:
 
 See component classes for details on properties and hooks supported by various components.
 
-#### `defineSound(desc)`
+### `defineSound(desc)`
 
 Defines a new sound or replaces an existing sound definition. The samples used need to be 16bit 44100Hz .wav-files.
 
@@ -376,7 +376,7 @@ Defines a new sound or replaces an existing sound definition. The samples used n
 - `minDistance`: the minimum distance in squares for sound falloff. The sound plays at max volume if it is closer than min distance to the listener.
 - `maxDistance`: the maximum distance in squares for sound falloff. The sound is not audible after max distance.
 
-#### `defineParticleSystem(desc)`
+### `defineParticleSystem(desc)`
 
 Defines a new particle system or replaces an existing particle system definition.
 
@@ -419,7 +419,7 @@ The following parameters are supported:
 - `clampToGroundPlane`: a boolean flag, if enabled particles collide against the ground.
 - `depthBias`: depth bias value in world space units.
 
-#### `defineRace(desc)`
+### `defineRace(desc)`
 
 Defines a new race or replaces an existing race definition.
 
@@ -431,7 +431,7 @@ Defines a new race or replaces an existing race definition.
 
 A champion automatically gains the trait with the same name as his race.
 
-#### `defineCharClass(desc)`
+### `defineCharClass(desc)`
 
 Defines a new character class or replaces an existing class definition.
 
@@ -444,7 +444,7 @@ Defines a new character class or replaces an existing class definition.
 
 A champion automatically gains the trait with the same name as his character class.
 
-#### `defineSkill(desc)`
+### `defineSkill(desc)`
 
 Defines a new skill or replaces an existing skill definition.
 
@@ -462,7 +462,7 @@ Defines a new skill or replaces an existing skill definition.
 - `onComputeAccuracy(champion, weapon, attack, attackType, skillLevel)`: (optional) a hook for modifying accuracy of an attack. The function should return an accuracy modifier.
 - `onComputeCritChance(champion, weapon, attack, attackType, skillLevel)`: (optional) a hook for modifying critical hit chance of an attack. The function should return a critical hit modifier.
 
-#### `defineTrait(desc)`
+### `defineTrait(desc)`
 
 Traits work almost exactly like skills except they are on/off rather than having a level.
 
@@ -474,7 +474,7 @@ The following additional fields are supported for traits:
 - `requiredRace`: (optional) the name of the race for racial traits.
 - `hidden`: (optional) a boolean, if set the trait is not shown in Traits tab.
 
-#### `defineMaterial(desc)`
+### `defineMaterial(desc)`
 
 Defines a new material or replaces an existing material definition.
 
@@ -496,7 +496,7 @@ Defines a new material or replaces an existing material definition.
 - `depthBias`: (optional) depth bias value. It is recommended to set this always to zero.
 - `onUpdate(material, time)`: (optional) hook to be called every frame. It can be used to animate materials.
 
-#### `defineSpell(desc)`
+### `defineSpell(desc)`
 
 Defines a new spell or replaces an existing spell.
 
@@ -540,7 +540,7 @@ The available runes are:
 
 For example, `1236` would be the gesture of the Fireball spell.
 
-#### `defineRecipe(desc)`
+### `defineRecipe(desc)`
 
 Defines a new potion recipe or replases an existing recipe.
 
@@ -564,7 +564,7 @@ The available herbs are:
 
 For example, `115` would translate to a recipe with two Blooddrop Caps and one Blackmoss.
 
-#### `defineTile(desc)`
+### `defineTile(desc)`
 
 Defines a new tile for Dungeon Editor or replases an existing definition.
 
@@ -603,7 +603,7 @@ wall = {
 }
 ```
 
-### AmmoItemComponent (Component)
+## AmmoItemComponent (Component)
 
 Makes an item ammo for missile or firearm attack. The ammo types must match in the Ammo component and the attack component.
 
@@ -612,7 +612,7 @@ Makes an item ammo for missile or firearm attack. The ammo types must match in t
 - `AmmoItemComponent:setAmmoType(string)`	Set ammunition type which must match with weapon’s ammo type
 - `AmmoItemComponent:setAttackPower(number)`	Set damage bonus to weapon’s base damage
 
-### AnimationComponent (Component)
+## AnimationComponent (Component)
 
 Adds animations to the 3D model attached to the same GameObject. The GameObject must have a Model component.
 
@@ -630,14 +630,14 @@ Adds animations to the 3D model attached to the same GameObject. The GameObject 
 - `AnimationComponent:stop()`
 - `AnimationComponent.onAnimationEvent(self, event)`
 
-### BeaconFurnaceControllerComponent (Component)
+## BeaconFurnaceControllerComponent (Component)
 
 Implements the behavior of altars in Elemental Shrines. The name of the class is weird because of historical reasons.
 
 - `BeaconFurnaceControllerComponent:getElement()`
 - `BeaconFurnaceControllerComponent:setElement(string)`
 
-### BlastComponent (Component)
+## BlastComponent (Component)
 
 Spawns objects in 2 square radius area. Used to implement Magma Golem’s flame wave attack.
 
@@ -646,9 +646,9 @@ Spawns objects in 2 square radius area. Used to implement Magma Golem’s flame 
 - `BlastComponent:setDelay(number)`
 - `BlastComponent:setEffect(string)`
 
-### BlindedMonsterComponent (Component)
+## BlindedMonsterComponent (Component)
 
-### BombItemComponent (Component)
+## BombItemComponent (Component)
 
 Makes a thrown item explode when it hits something.
 
@@ -657,7 +657,7 @@ Makes a thrown item explode when it hits something.
 - `BombItemComponent:setBombPower(number)`
 - `BombItemComponent:setBombType(string)`
 
-### BossFightComponent (Component)
+## BossFightComponent (Component)
 
 Implements boss fights. When activated, bossfight music starts and a progress bar is displayed at the top of the screen. The boss fight ends automatically when all monsters taking part in it are destroyed or it can be manually deactivated.
 
@@ -675,7 +675,7 @@ Implements boss fights. When activated, bossfight music starts and a progress ba
 - `BossFightComponent:setBossName(string)`
 - `BossFightComponent:setMusic(string)`
 
-### BrainComponent (Component)
+## BrainComponent (Component)
 
 Base-class for all monster brains. You can either use one of the built in brains (e.g. TurleBrain) or implement a custom onThink hook. When the monster is ready to perform a new action, the brain’s onThink hook is called. The brain should respond by calling monster component’s performAction() method with a valid action name. The brain class itself contains many higher level behaviors such as fleeing and pursuit which can be used in place of performAction() to delegate decision making. If the brain can not decide what to do, Brain:wait() should be called. This will put the monster’s brain to sleep for a short time (typically 0.1s) to prevent extensive CPU usage.
 
@@ -734,14 +734,14 @@ Base-class for all monster brains. You can either use one of the built in brains
 - `BrainComponent.onThink(self)`
 - `BrainComponent.onBloodied(self)`
 
-### BurningMonsterComponent (Component)
+## BurningMonsterComponent (Component)
 
 Implements the burning condition for monsters. A monster with the burning condition is dealt ongoing fire damage until the effect’s duration ends or the monster dies.
 
 - `BurningMonsterComponent:getCausedByChampion()`
 - `BurningMonsterComponent:setCausedByChampion(number)`
 
-### ButtonComponent (Component)
+## ButtonComponent (Component)
 
 Implements wall button mechanics for an object. Requires Clickable and Animation component. When the object is clicked, the button component plays a sound, tells the animation component to play `press` animation clip and triggers its onActivate hook and connectors.
 
@@ -751,15 +751,15 @@ Implements wall button mechanics for an object. Requires Clickable and Animation
 - `ButtonComponent:setSound(string)`
 - `ButtonComponent.onActivate(self)`
 
-### CameraComponent (Component)
+## CameraComponent (Component)
 
 Custom camera component for rendering from arbitrary view point.
 
 - `CameraComponent.onUpdate(self)`
 
-### CameraShakeComponent (Component)
+## CameraShakeComponent (Component)
 
-### CastSpellComponent (ItemActionComponent)
+## CastSpellComponent (ItemActionComponent)
 
 Implements cast spell actions for spell wands. When used, a spell stored in the wand is cast. Optionally the wand may have limited number of charges.
 
@@ -784,7 +784,7 @@ Implements cast spell actions for spell wands. When used, a spell stored in the 
 - `CastSpellComponent:setSkill(string)`
 - `CastSpellComponent:setSpell(string)`
 
-### Champion
+## Champion
 
 Champion’s attributes, skills, traits, conditions and other statistics can be accessed through this class.
 
@@ -862,7 +862,7 @@ Champion’s attributes, skills, traits, conditions and other statistics can be 
 - `Champion:trainSkill(name, times)`
 - `Champion:upgradeBaseStat(name, value)`
 
-### ChestComponent (Component)
+## ChestComponent (Component)
 
 Implements the chest opening and closing animations. A chest be optionally locked and it could be mimic.
 
@@ -871,7 +871,7 @@ Implements the chest opening and closing animations. A chest be optionally locke
 - `ChestComponent:setLocked(locked)`
 - `ChestComponent:setMimic(boolean)`
 
-### ClickableComponent (Component)
+## ClickableComponent (Component)
 
 Defines the click box of an object. onClick hook is called when the player clicks on the object. A GameObject can have any number of Clickables.
 
@@ -885,7 +885,7 @@ Defines the click box of an object. onClick hook is called when the player click
 - `ClickableComponent:setSize(size)`
 - `ClickableComponent.onClick(self)`
 
-### CloudSpellComponent (Component)
+## CloudSpellComponent (Component)
 
 A CloudSpell deals ongoing damage to party, monsters and obtacles in the same square. The component is automatically destroyed when its duration runs out.
 
@@ -902,7 +902,7 @@ A CloudSpell deals ongoing damage to party, monsters and obtacles in the same sq
 - `CloudSpellComponent:setDuration(time)`
 - `CloudSpellComponent:setSound(string)`
 
-### Component
+## Component
 
 Base-class for all Components. A Component always belongs to one and only one GameObject. Components can be enabled and disabled. A disabled component usually acts as it would not exist in the game.
 
@@ -918,17 +918,17 @@ Base-class for all Components. A Component always belongs to one and only one Ga
 - `Component:setRotationAngles(x, y, z)`
 - `Component.onInit(self)`
 
-### Config
+## Config
 
 - `Config.getKeyBinding(action)`
 - `Config.getRenderingQuality()`
 
-### Console
+## Console
 
 - `Console.suppressWarnings(suppress)`
 - `Console.warn(msg)`
 
-### ContainerItemComponent (Component)
+## ContainerItemComponent (Component)
 
 Makes an item a container for other items.
 
@@ -944,7 +944,7 @@ Makes an item a container for other items.
 - `ContainerItemComponent.onInsertItem(self, item, slot)`
 - `ContainerItemComponent.onRemoveItem(self, item, slot)`
 
-### ControllerComponent (Component)
+## ControllerComponent (Component)
 
 Generic controller component which can be used to implement custom activate/deactivate/toggle, open/close, increment/decrement or start/stop semantics for an object. For example, if you add onActivate and onDeactivate hooks to the Controller, the controller can act as target for activate and deactivate events in the Dungeon Editor.
 
@@ -976,7 +976,7 @@ Generic controller component which can be used to implement custom activate/deac
 - `ControllerComponent.onStop(self)`
 - `ControllerComponent.onPause(self)`
 
-### CounterComponent (Component)
+## CounterComponent (Component)
 
 Counters start with an initial value and count down when activated. When counter’s value reaches zero, it calls its onActivate hook and triggers onActivate connectors.
 
@@ -989,17 +989,17 @@ Counters start with an initial value and count down when activated. When counter
 - `CounterComponent.onActivate(self)`
 - `CounterComponent.onDeactivate(self)`
 
-### CrabBrainComponent (BrainComponent)
+## CrabBrainComponent (BrainComponent)
 
 Implements AI for Cave Crabs.
 
-### CraftPotionComponent (Component)
+## CraftPotionComponent (Component)
 
-### CrowControllerComponent (Component)
+## CrowControllerComponent (Component)
 
-### CrowernAttackComponent (Component)
+## CrowernAttackComponent (Component)
 
-### CrystalComponent (Component)
+## CrystalComponent (Component)
 
 Implements the animation and behavior of healing crystals.
 
@@ -1008,9 +1008,9 @@ Implements the animation and behavior of healing crystals.
 - `CrystalComponent:getCooldown()`
 - `CrystalComponent:setCooldown(number)`
 
-### CrystalShardItemComponent (Component)
+## CrystalShardItemComponent (Component)
 
-### DamageFlags
+## DamageFlags
 
 - `DamageFlags.Impact = 1`
 - `DamageFlags.OngoingDamage = 2`
@@ -1024,9 +1024,9 @@ Implements the animation and behavior of healing crystals.
 - `DamageFlags.NoLingeringEffects = 512`
 - `DamageFlags.DamageSourceIceShards = 1024`
 
-### DiggingToolComponent (Component)
+## DiggingToolComponent (Component)
 
-### DoorComponent (Component)
+## DoorComponent (Component)
 
 Door component blocks movement and projectiles from passing between two adjacent squares. Requires a Model component with a node named `gate`. The gate node is animated when the door is opened and closed. Doors can either open vertically (single doors) or horizontally (double doors).
 
@@ -1074,22 +1074,22 @@ Door component blocks movement and projectiles from passing between two adjacent
 - `DoorComponent.onClose(self)`
 - `DoorComponent.onAttackedByChampion(self, champion, weapon, attack, slot)`
 
-### Dungeon
+## Dungeon
 
 - `Dungeon.getMap(i)`
 - `Dungeon.getMaxLevels()`
 
-### DynamicObstacleComponent (Component)
+## DynamicObstacleComponent (Component)
 
-### EarthquakeComponent (Component)
+## EarthquakeComponent (Component)
 
-### Editor
+## Editor
 
 - `Editor.isRunning()`
 
-### EntangledMonsterComponent (Component)
+## EntangledMonsterComponent (Component)
 
-### EquipmentItemComponent (Component)
+## EquipmentItemComponent (Component)
 
 Implemented various modifiers to stats of an Champion when the item is equipped. The traits of an item define where the item can be equipped.
 
@@ -1139,17 +1139,17 @@ Implemented various modifiers to stats of an Champion when the item is equipped.
 - `EquipmentItemComponent.onComputeAccuracy(self, champion, weapon, attack, attackType)`
 - `EquipmentItemComponent.onComputeCritChance(self, champion, weapon, attack, attackType)`
 
-### ExitComponent (Component)
+## ExitComponent (Component)
 
-### EyctopusBrainComponent (BrainComponent)
+## EyctopusBrainComponent (BrainComponent)
 
 Implements AI for Eyctopuses.
 
-### FireElementalBrainComponent (BrainComponent)
+## FireElementalBrainComponent (BrainComponent)
 
 Implements AI for Fire Elementals.
 
-### FirearmAttackComponent (ItemActionComponent)
+## FirearmAttackComponent (ItemActionComponent)
 
 Implements firearm attacks. Firearm attacks need ammo.
 
@@ -1180,7 +1180,7 @@ Implements firearm attacks. Firearm attacks need ammo.
 - `FirearmAttackComponent.onBackfire(self, champion)`
 - `FirearmAttackComponent.onPostAttack(self, champion, slot)`
 
-### FloorTriggerComponent (Component)
+## FloorTriggerComponent (Component)
 
 A floor trigger reacts to objects placed into trigger’s square. A floor trigger can be in two states: activated and deactivated. When an object is placed on a deactivated trigger, it changes to activated state and fires its onActivate hooks and connectors. Similarly when an object is removed from the square of an activated trigger, the trigger changes into deactivated state and fires its onDeactivate hooks and connectors.
 
@@ -1210,7 +1210,7 @@ A floor trigger reacts to objects placed into trigger’s square. A floor trigge
 - `FloorTriggerComponent.onDeactivate(self)`
 - `FloorTriggerComponent.onToggle(self)`
 
-### FogParamsComponent (Component)
+## FogParamsComponent (Component)
 
 Overrides fog parameters for indoor scenes. This component is used to make the fog green in Herder’s Den level in the main campaign. Only works indoors! The Sky component defines fog parameters for outdoor scenes.
 
@@ -1221,7 +1221,7 @@ Overrides fog parameters for indoor scenes. This component is used to make the f
 - `FogParamsComponent:setFogMode(string)`
 - `FogParamsComponent:setFogRange(table)`
 
-### FogParticlesComponent (Component)
+## FogParticlesComponent (Component)
 
 Adds particle fog effect to the scene. The effect quite heavy on performance so use it wisely.
 
@@ -1238,11 +1238,11 @@ Adds particle fog effect to the scene. The effect quite heavy on performance so 
 - `FogParticlesComponent:setParticleSize(number)`
 - `FogParticlesComponent:setTexture(texture)`
 
-### ForceFieldComponent (Component)
+## ForceFieldComponent (Component)
 
-### FrozenMonsterComponent (Component)
+## FrozenMonsterComponent (Component)
 
-### GameMode
+## GameMode
 
 - `GameMode.advanceTime(amount)`
 - `GameMode.completeGame(filename)`
@@ -1257,7 +1257,7 @@ Adds particle fog effect to the scene. The effect quite heavy on performance so 
 - `GameMode.setTimeOfDay(time)`
 - `GameMode.showImage(filename)`
 
-### GameObject
+## GameObject
 
 GameObject is a container for Components. A GameObject has a position and orientation in the world.
 
@@ -1285,18 +1285,18 @@ GameObject is a container for Components. A GameObject has a position and orient
 - `GameObject:setWorldRotationAnglesWithOrder(x, y, z, order)`
 - `GameObject:spawn(name)`
 
-### GoromorgBrainComponent (BrainComponent)
+## GoromorgBrainComponent (BrainComponent)
 
 Implements AI for Goromorgs.
 
-### GoromorgShieldComponent (Component)
+## GoromorgShieldComponent (Component)
 
 Implements the Goromorg shield effect for monsters. The shielded monster is invulnerable to all damage. Instead the damage is directed to the shield. When the shield’s energy is depleted the shield is destroyed.
 
 - `GoromorgShieldComponent:getEnergy()`
 - `GoromorgShieldComponent:setEnergy(number)`
 
-### GraphicsContext
+## GraphicsContext
 
 - `GraphicsContext.button(id, x, y, width, height)`
 - `GraphicsContext.color(r, g, b, a)`
@@ -1313,7 +1313,7 @@ Implements the Goromorg shield effect for monsters. The shielded monster is invu
 - `GraphicsContext.mouseX`
 - `GraphicsContext.mouseY`
 
-### GravityComponent (Component)
+## GravityComponent (Component)
 
 Makes the object fall unless it is on ground or supported by a surface or a platform.
 
@@ -1323,7 +1323,7 @@ Makes the object fall unless it is on ground or supported by a surface or a plat
 - `GravityComponent:setDestroySelf(boolean)`	Set whether component should be destroyed when it impacts ground
 - `GravityComponent:setFallingSpeed(speed)`
 
-### HealthComponent (Component)
+## HealthComponent (Component)
 
 Makes the object breakable. Typically used with Obstacle component to make breakable obstacles. When the health value reaches zero, the object is destroyed.
 
@@ -1339,25 +1339,25 @@ Makes the object breakable. Typically used with Obstacle component to make break
 - `HealthComponent:setSpawnOnDeath(string)`
 - `HealthComponent.onDie(self)`
 
-### HeightmapComponent (Component)
+## HeightmapComponent (Component)
 
-### HerderBigBrainComponent (BrainComponent)
+## HerderBigBrainComponent (BrainComponent)
 
 Implements AI for Big Herders.
 
-### HerderSmallBrainComponent (BrainComponent)
+## HerderSmallBrainComponent (BrainComponent)
 
 Implements AI for Small Herders.
 
-### IceGuardianBrainComponent (BrainComponent)
+## IceGuardianBrainComponent (BrainComponent)
 
 Implements AI for Ice Guardians.
 
-### IceLizardBrainComponent (BrainComponent)
+## IceLizardBrainComponent (BrainComponent)
 
 Implements AI for Ice Lizards.
 
-### IceShardsComponent (Component)
+## IceShardsComponent (Component)
 
 Implements the Ice Shards spell.
 
@@ -1367,7 +1367,7 @@ Implements the Ice Shards spell.
 - `IceShardsComponent:setDelay(number)`
 - `IceShardsComponent:setRange(number)`
 
-### ItemActionComponent (Component)
+## ItemActionComponent (Component)
 
 Base-class for item actions (usually attacks). onAttack hook is called when the item’s action is performed by an champion.
 
@@ -1395,7 +1395,7 @@ Base-class for item actions (usually attacks). onAttack hook is called when the 
 - `ItemActionComponent:setUiName(string)`	Set power attack name
 - `ItemActionComponent.onAttack(self, champion, slot, chainIndex)`
 
-### ItemComponent (Component)
+## ItemComponent (Component)
 
 Makes the object an item that can be picked up, dropped, thrown and placed into champions’ hands and inventory. Requires Model component.
 
@@ -1464,9 +1464,9 @@ Makes the object an item that can be picked up, dropped, thrown and placed into 
 - `ItemComponent.onEquipItem(self, champion, slot)`
 - `ItemComponent.onUnequipItem(self, champion, slot)`
 
-### ItemConstrainBoxComponent (Component)
+## ItemConstrainBoxComponent (Component)
 
-### ItemSlot
+## ItemSlot
 
 - `ItemSlot.Weapon = 1`
 - `ItemSlot.OffHand = 2`
@@ -1484,11 +1484,11 @@ Makes the object an item that can be picked up, dropped, thrown and placed into 
 - `ItemSlot.BackpackLast = 32`
 - `ItemSlot.MaxSlots = 32`
 
-### LadderComponent (Component)
+## LadderComponent (Component)
 
-### LensFlareComponent (Component)
+## LensFlareComponent (Component)
 
-### LeverComponent (Component)
+## LeverComponent (Component)
 
 A controller component that implements lever mechanics for an object. The GameObject should have a Clickable and an Animation component with `activate` and `deactivate` animation clips attached to it.
 
@@ -1504,7 +1504,7 @@ A controller component that implements lever mechanics for an object. The GameOb
 - `LeverComponent.onDeactivate(self)`
 - `LeverComponent.onToggle(self)`
 
-### LightComponent (Component)
+## LightComponent (Component)
 
 Dynamic light source for rendering. A single GameObject can have multiple Light components.
 
@@ -1548,15 +1548,15 @@ Dynamic light source for rendering. A single GameObject can have multiple Light 
 - `LightComponent:setType(type)`
 - `LightComponent.onUpdate(self)`
 
-### LindwormBrainComponent (BrainComponent)
+## LindwormBrainComponent (BrainComponent)
 
 Implements AI for the Lindworm.
 
-### LindwormChargeComponent (Component)
+## LindwormChargeComponent (Component)
 
-### LindwormFlyComponent (Component)
+## LindwormFlyComponent (Component)
 
-### LockComponent (Component)
+## LockComponent (Component)
 
 A controller component that implements lock mechanics for an object. Requires Clickable component.
 
@@ -1566,11 +1566,11 @@ A controller component that implements lock mechanics for an object. Requires Cl
 - `LockComponent:setSound(string)`
 - `LockComponent.onActivate(self)`
 
-### MagmaGolemBrainComponent (BrainComponent)
+## MagmaGolemBrainComponent (BrainComponent)
 
 Implements AI for Magma Golems.
 
-### Map
+## Map
 
 Contains all entities (also known as GameObjects) of a dungeon level. Map size is currently always 32 by 32.
 
@@ -1597,7 +1597,7 @@ Contains all entities (also known as GameObjects) of a dungeon level. Map size i
 - `Map:setAutomapTile(number, number, number)`
 - `Map:worldToMap(pos)`
 
-### MapGraphicsComponent (Component)
+## MapGraphicsComponent (Component)
 
 Adds custom graphics to the automap.
 
@@ -1614,14 +1614,14 @@ Adds custom graphics to the automap.
 - `MapGraphicsComponent:setOffset3(vec)`
 - `MapGraphicsComponent:setRotate(boolean)`
 
-### MapMarkerComponent (Component)
+## MapMarkerComponent (Component)
 
 Adds a marker with text on the automap.
 
 - `MapMarkerComponent:getText()`
 - `MapMarkerComponent:setText(string)`
 
-### MaterialEx
+## MaterialEx
 
 Holds parameters of a rendering material. Materials can only be accessed from material definition’s onUpdate hooks.
 
@@ -1629,7 +1629,7 @@ Holds parameters of a rendering material. Materials can only be accessed from ma
 - `MaterialEx:setTexcoordScaleOffset(number, number, number, number)`
 - `MaterialEx:setTexture(string, string)`
 
-### MeleeAttackComponent (ItemActionComponent)
+## MeleeAttackComponent (ItemActionComponent)
 
 Implements melee attack action for items. Melee attacks can hit and damage a single target in front of the party.
 
@@ -1664,19 +1664,19 @@ Implements melee attack action for items. Melee attacks can hit and damage a sin
 - `MeleeAttackComponent.onPostAttack(self, champion, slot)`
 - `MeleeAttackComponent.onHitMonster(self, monster, tside, damage, champion)`
 
-### MeleeBrainComponent (BrainComponent)
+## MeleeBrainComponent (BrainComponent)
 
 Implements AI for generic (stupid) melee monsters.
 
-### MersenneTwister
+## MersenneTwister
 
 - `MersenneTwister.create(seed)`
 - `MersenneTwister.random()`
 - `MersenneTwister.randomInt(min, max)`
 
-### MimicCameraAnimationComponent (Component)
+## MimicCameraAnimationComponent (Component)
 
-### ModelComponent (Component)
+## ModelComponent (Component)
 
 3D model for rendering. A single GameObject can have multiple Model components.
 
@@ -1712,7 +1712,7 @@ Implements AI for generic (stupid) melee monsters.
 - `ModelComponent:setStoreSourceData(boolean)`
 - `ModelComponent:updateLods()`
 
-### MonsterActionComponent (Component)
+## MonsterActionComponent (Component)
 
 Implements a custom monster action. An action is always connected with an animation that controls when the action starts and ends. onBeginAction and onEndAction hooks are called when the action is started and ended. onAnimationEvent hook is called when an animation event is triggered.
 
@@ -1724,7 +1724,7 @@ Implements a custom monster action. An action is always connected with an animat
 - `MonsterActionComponent.onEndAction(self)`
 - `MonsterActionComponent.onAnimationEvent(self, event)`
 
-### MonsterAttackComponent (MonsterActionComponent)
+## MonsterAttackComponent (MonsterActionComponent)
 
 Implements a monster attack action. A monster can have more than one attacks.
 
@@ -1784,9 +1784,9 @@ Implements a monster attack action. A monster can have more than one attacks.
 - `MonsterAttackComponent.onAttackHit(self, champion)`
 - `MonsterAttackComponent.onDealDamage(self, champion, damage)`
 
-### MonsterChangeAltitudeComponent (Component)
+## MonsterChangeAltitudeComponent (Component)
 
-### MonsterChargeComponent (Component)
+## MonsterChargeComponent (Component)
 
 Implements a monster charge action. When the action is started, it first plays the `chargeBegin` animation after which it alternates between `chargeContinue1` and `chargeContinue2` animations until the charge ends. Each animation moves the monster forward by one square.
 
@@ -1797,7 +1797,7 @@ Implements a monster charge action. When the action is started, it first plays t
 - `MonsterChargeComponent:setCooldown(number)`
 - `MonsterChargeComponent:setSound(string)`
 
-### MonsterComponent (Component)
+## MonsterComponent (Component)
 
 Makes the object a monster. Requires Model, Animation and a brain component. Most monsters (depending on the brain) also require MonsterMove, MonsterTurn and MonsterAttack components.
 
@@ -1889,9 +1889,9 @@ Makes the object a monster. Requires Model, Animation and a brain component. Mos
 - `MonsterComponent.onDamage(self, damage, damageType)`
 - `MonsterComponent.onDie(self)`
 
-### MonsterDropItemComponent (Component)
+## MonsterDropItemComponent (Component)
 
-### MonsterGroupComponent (Component)
+## MonsterGroupComponent (Component)
 
 Spawns a group of monsters when the next time the level is updated.
 
@@ -1905,15 +1905,15 @@ Spawns a group of monsters when the next time the level is updated.
 - `MonsterGroupComponent:setMonsterType(string)`
 - `MonsterGroupComponent:spawnNow()`
 
-### MonsterJumpComponent (Component)
+## MonsterJumpComponent (Component)
 
-### MonsterKnockbackComponent (Component)
+## MonsterKnockbackComponent (Component)
 
-### MonsterLightCullerComponent (Component)
+## MonsterLightCullerComponent (Component)
 
-### MonsterMoveAttackComponent (Component)
+## MonsterMoveAttackComponent (Component)
 
-### MonsterMoveComponent (Component)
+## MonsterMoveComponent (Component)
 
 Implements low level movement behavior for monsters.
 
@@ -1945,13 +1945,13 @@ Implements low level movement behavior for monsters.
 - `MonsterMoveComponent:setTurnDir(number)`
 - `MonsterMoveComponent.onUnlinkMonsterGroup(self)`
 
-### MonsterOperateDeviceComponent (Component)
+## MonsterOperateDeviceComponent (Component)
 
-### MonsterPickUpItemComponent (Component)
+## MonsterPickUpItemComponent (Component)
 
-### MonsterStealWeaponComponent (Component)
+## MonsterStealWeaponComponent (Component)
 
-### MonsterTurnComponent (Component)
+## MonsterTurnComponent (Component)
 
 Implements low level turning behavior for monsters.
 
@@ -1972,15 +1972,15 @@ Implements low level turning behavior for monsters.
 - `MonsterTurnComponent:setTurnLeftAnimation(anim)`
 - `MonsterTurnComponent:setTurnRightAnimation(anim)`
 
-### MonsterWarpComponent (Component)
+## MonsterWarpComponent (Component)
 
-### MosquitoSwarmBrainComponent (BrainComponent)
+## MosquitoSwarmBrainComponent (BrainComponent)
 
 Implements AI for Mosquito Swarms.
 
-### NullComponent (Component)
+## NullComponent (Component)
 
-### ObstacleComponent (Component)
+## ObstacleComponent (Component)
 
 Blocks movement for party and monsters. Optionally prevents placing items into obstacle’s square. Use the Health component to make the obstacle breakable.
 
@@ -1997,13 +1997,13 @@ Blocks movement for party and monsters. Optionally prevents placing items into o
 - `ObstacleComponent:setHitSound(string)`	Set sound to play when obstacle is hit
 - `ObstacleComponent:setRepelProjectiles(boolean)`	Set whether impacted projectiles should be pushed out of obstacle’s square
 
-### OccluderComponent (Component)
+## OccluderComponent (Component)
 
-### OgreBrainComponent (BrainComponent)
+## OgreBrainComponent (BrainComponent)
 
 Implements AI for Ogres.
 
-### ParticleComponent (Component)
+## ParticleComponent (Component)
 
 Adds a particle effect to the GameObject. A single GameObject can have multiple Particle components.
 
@@ -2028,7 +2028,7 @@ Adds a particle effect to the GameObject. A single GameObject can have multiple 
 - `ParticleComponent:start()`
 - `ParticleComponent:stop()`
 
-### PartyComponent (Component)
+## PartyComponent (Component)
 
 The singular party component that holds the four champions. Champion’s position in the party can change when party formation is changed. However champions can be identified with their ordinal number that never changes.
 
@@ -2065,7 +2065,7 @@ The singular party component that holds the four champions. Champion’s positio
 - `PartyComponent.onTurn(self, direction)`
 - `PartyComponent.onMove(self, direction)`
 
-### PitComponent (Component)
+## PitComponent (Component)
 
 Implements pit mechanics for an object. Non-flying monsters, items and party fall down to level below if the pit is open.
 
@@ -2077,22 +2077,22 @@ Implements pit mechanics for an object. Non-flying monsters, items and party fal
 - `PitComponent:setState(state)`
 - `PitComponent:toggle()`
 
-### PlatformComponent (Component)
+## PlatformComponent (Component)
 
-### PoisonCloudAttackComponent (Component)
+## PoisonCloudAttackComponent (Component)
 
-### PoisonedMonsterComponent (Component)
+## PoisonedMonsterComponent (Component)
 
 Implements the poisoned condition for monsters. A monster with the poisoned condition is dealt ongoing poisoned damage until the effect’s duration ends or the monster dies.
 
 - `PoisonedMonsterComponent:getCausedByChampion()`
 - `PoisonedMonsterComponent:setCausedByChampion(number)`
 
-### PortalComponent (Component)
+## PortalComponent (Component)
 
 - `PortalComponent.onArrival(self)`
 
-### ProjectileColliderComponent (Component)
+## ProjectileColliderComponent (Component)
 
 Defines the collision box for projectile-object collisions. Walls, doors, monsters and the party are implicitly projectile colliders and do not need ProjectileCollider components.
 
@@ -2103,7 +2103,7 @@ Defines the collision box for projectile-object collisions. Walls, doors, monste
 - `ProjectileColliderComponent:setDebugDraw(boolean)`
 - `ProjectileColliderComponent:setSize(size)`
 
-### ProjectileComponent (Component)
+## ProjectileComponent (Component)
 
 Causes the object to fly towards its facing direction. When the projectile hits something its onProjectileHit hook is called.
 
@@ -2133,7 +2133,7 @@ Causes the object to fly towards its facing direction. When the projectile hits 
 - `ProjectileComponent:setVelocity(number)`
 - `ProjectileComponent.onProjectileHit(self, what, entity)`
 
-### ProjectileImpactComponent (Component)
+## ProjectileImpactComponent (Component)
 
 Implements custom hit reaction for a projectile hit. This component is obsolete and not used by the main campaign. Use an onProjectileHit hook in the Projectile component instead.
 
@@ -2141,9 +2141,9 @@ Implements custom hit reaction for a projectile hit. This component is obsolete 
 - `ProjectileImpactComponent.onHitMonster(self, monster)`
 - `ProjectileImpactComponent.onHitParty(self, party)`
 
-### PullChainComponent (Component)
+## PullChainComponent (Component)
 
-### PushableBlockComponent (Component)
+## PushableBlockComponent (Component)
 
 Implements pushable block mechanics for an object. The pushable block must be activated and it can only be pushed to squares with pushable block floors.
 
@@ -2151,7 +2151,7 @@ Implements pushable block mechanics for an object. The pushable block must be ac
 - `PushableBlockComponent:deactivate()`
 - `PushableBlockComponent:push(dir)`
 
-### PushableBlockFloorComponent (Component)
+## PushableBlockFloorComponent (Component)
 
 Implements custom floor trigger for pushable blocks.
 
@@ -2162,7 +2162,7 @@ Implements custom floor trigger for pushable blocks.
 - `PushableBlockFloorComponent:setInitialState(boolean)`
 - `PushableBlockFloorComponent:toggle()`
 
-### RangedAttackComponent (ItemActionComponent)
+## RangedAttackComponent (ItemActionComponent)
 
 Implements missile attack action for items. Missile attacks require ammo that must be held in champion’s other hand.
 
@@ -2186,30 +2186,30 @@ Implements missile attack action for items. Missile attacks require ammo that mu
 - `RangedAttackComponent:setSwipe(string)`
 - `RangedAttackComponent.onPostAttack(self, champion, slot)`
 
-### RangedBrainComponent (BrainComponent)
+## RangedBrainComponent (BrainComponent)
 
 Implements AI for generic (stupid) ranged monsters.
 
-### RatlingBossBrainComponent (BrainComponent)
+## RatlingBossBrainComponent (BrainComponent)
 
 Implements AI for the Ratling Boss.
 
-### ReloadFirearmComponent (Component)
+## ReloadFirearmComponent (Component)
 
-### RopeToolComponent (Component)
+## RopeToolComponent (Component)
 
-### RunePanelComponent (Component)
+## RunePanelComponent (Component)
 
-### ScriptComponent (Component)
+## ScriptComponent (Component)
 
 Custom Lua script component. The script code may be embedded inside the component or in an external file.
 
 - `ScriptComponent:loadFile(filename)`
 - `ScriptComponent:setSource(source)`
 
-### ScriptControllerComponent (Component)
+## ScriptControllerComponent (Component)
 
-### ScrollItemComponent (Component)
+## ScrollItemComponent (Component)
 
 Displays a piece of text or an image in item’s tooltip.
 
@@ -2220,21 +2220,21 @@ Displays a piece of text or an image in item’s tooltip.
 - `ScrollItemComponent:setScrollText(string)`	Set text shown when the scroll is examined
 - `ScrollItemComponent:setTextAlignment(string)`	Set text alignment, `center` or `left`
 
-### SecretComponent (Component)
+## SecretComponent (Component)
 
 Implements secret mechanics for an object. When the secret component is activated, it playes the secret found sound and increments the `secrets_found` statistics. Each secret can be triggered only once.
 
 - `SecretComponent:activate()`
 
-### SkeletonArcherBrainComponent (BrainComponent)
+## SkeletonArcherBrainComponent (BrainComponent)
 
 Implements AI for Skeleton Archers.
 
-### SkeletonCommanderBrainComponent (BrainComponent)
+## SkeletonCommanderBrainComponent (BrainComponent)
 
 Implements AI for Skeleton Commanders.
 
-### SkyComponent (Component)
+## SkyComponent (Component)
 
 Placing an object with Sky component into a level makes it an outdoor level. Rendering parameters such as view distance and fog are set for outdoor rendering. The Sky component animates the light component attached to the same object to simulate day-night cycle. There should be only one Sky per level.
 
@@ -2261,15 +2261,15 @@ Placing an object with Sky component into a level makes it an outdoor level. Ren
 - `SkyComponent:setSunColor3(vec)`
 - `SkyComponent:setTonemapSaturation(number)`
 
-### SleepingMonsterComponent (Component)
+## SleepingMonsterComponent (Component)
 
-### SlimeBrainComponent (BrainComponent)
+## SlimeBrainComponent (BrainComponent)
 
 Implements AI for Slimes.
 
-### SmallFishControllerComponent (Component)
+## SmallFishControllerComponent (Component)
 
-### SocketComponent (Component)
+## SocketComponent (Component)
 
 An attachment point for items. Wall hooks, sconces, statue’s hand could be sockets. A socket can hold a single item.
 
@@ -2282,7 +2282,7 @@ An attachment point for items. Wall hooks, sconces, statue’s hand could be soc
 - `SocketComponent.onRemoveItem(self, item)`
 - `SocketComponent.onAcceptItem(self, item)`
 
-### SoundComponent (Component)
+## SoundComponent (Component)
 
 Dynamic sound source. A single GameObject can have multiple Sound components.
 
@@ -2299,7 +2299,7 @@ Dynamic sound source. A single GameObject can have multiple Sound components.
 - `SoundComponent:setVolume(number)`
 - `SoundComponent:stop()`
 
-### SpawnerComponent (Component)
+## SpawnerComponent (Component)
 
 A Spawner dynamically spawns a new object when it’s activate method is called. After spawning an object the spawner goes into cooldown. After the cooldown time has elapsed, the spawner can be activated again.
 
@@ -2314,14 +2314,14 @@ A Spawner dynamically spawns a new object when it’s activate method is called.
 - `SpawnerComponent:setSpawnedEntity(string)`
 - `SpawnerComponent.onActivate(self)`
 
-### SpellScrollItemComponent (Component)
+## SpellScrollItemComponent (Component)
 
 Displays the gesture and information about a spell in item’s tooltip.
 
 - `SpellScrollItemComponent:getSpell()`
 - `SpellScrollItemComponent:setSpell(string)`
 
-### StairsComponent (Component)
+## StairsComponent (Component)
 
 Transports the party and thrown items to another location in the game world. The target can be either a level below to above (set with setDirection method) or any location (set with setTeleportTarget).
 
@@ -2330,13 +2330,13 @@ Transports the party and thrown items to another location in the game world. The
 - `StairsComponent:setDirection(string)`
 - `StairsComponent:setTeleportTarget(level, x, y, elevation)`
 
-### StatisticsComponent (Component)
+## StatisticsComponent (Component)
 
-### StonePhilosopherControllerComponent (Component)
+## StonePhilosopherControllerComponent (Component)
 
-### StunnedMonsterComponent (Component)
+## StunnedMonsterComponent (Component)
 
-### SurfaceComponent (Component)
+## SurfaceComponent (Component)
 
 A support for placing items. Altars, alcoves and chests are typically surfaces.
 
@@ -2349,11 +2349,11 @@ A support for placing items. Altars, alcoves and chests are typically surfaces.
 - `SurfaceComponent.onInsertItem(self, item)`
 - `SurfaceComponent.onRemoveItem(self, item)`
 
-### SwarmBrainComponent (BrainComponent)
+## SwarmBrainComponent (BrainComponent)
 
 Implements AI for swarm monsters.
 
-### TeleporterComponent (Component)
+## TeleporterComponent (Component)
 
 Transports the party, monsters, items and spells to another location in the game world.
 
@@ -2370,15 +2370,15 @@ Transports the party, monsters, items and spells to another location in the game
 - `TeleporterComponent:setTriggeredByParty(boolean)`
 - `TeleporterComponent:setTriggeredBySpell(boolean)`
 
-### TentacleBrainComponent (BrainComponent)
+## TentacleBrainComponent (BrainComponent)
 
 Implements AI for Tentacles.
 
-### TentacleHideComponent (Component)
+## TentacleHideComponent (Component)
 
-### ThornWallComponent (Component)
+## ThornWallComponent (Component)
 
-### ThrowAttackComponent (ItemActionComponent)
+## ThrowAttackComponent (ItemActionComponent)
 
 Implements throw attack action for items. When thrown, a Projectile component is dynamically created and added to the thrown item.
 
@@ -2396,7 +2396,7 @@ Implements throw attack action for items. When thrown, a Projectile component is
 - `ThrowAttackComponent:setSwipe(string)`
 - `ThrowAttackComponent.onPostAttack(self, champion, slot)`
 
-### TileDamagerComponent (Component)
+## TileDamagerComponent (Component)
 
 A TileDamager damages party, monsters and obstacles in the same square when activated. TileDamagers can be one shot or cause damage as long as the target stays in the same space.
 
@@ -2424,13 +2424,13 @@ A TileDamager damages party, monsters and obstacles in the same square when acti
 - `TileDamagerComponent.onHitMonster(self, monster)`
 - `TileDamagerComponent.onHitObstacle(self, obstacle)`
 
-### Time
+## Time
 
 - `Time.currentTime()`
 - `Time.deltaTime()`
 - `Time.systemTime()`
 
-### TimerComponent (Component)
+## TimerComponent (Component)
 
 Timer component triggers its onActivate hook periodically. The timer inverval or period can be customized. Timers can act in one shot mode (disable self set) or running mode (disable self not set).
 
@@ -2447,7 +2447,7 @@ Timer component triggers its onActivate hook periodically. The timer inverval or
 - `TimerComponent:stop()`
 - `TimerComponent.onActivate(self)`
 
-### TinyCritterControllerComponent (Component)
+## TinyCritterControllerComponent (Component)
 
 Implements the animation and behavior of tiny critters such as beach crabs.
 
@@ -2456,44 +2456,44 @@ Implements the animation and behavior of tiny critters such as beach crabs.
 - `TinyCritterControllerComponent:setSpeed(number)`	Set speed
 - `TinyCritterControllerComponent:setStrafing(boolean)`	Set strafing (true or false)
 
-### ToadBrainComponent (BrainComponent)
+## ToadBrainComponent (BrainComponent)
 
 Implements AI for Swamp Toads.
 
-### TorchHolderControllerComponent (Component)
+## TorchHolderControllerComponent (Component)
 
 Controller for torch holders. Requires Socket, Light, Sound and Particle components. The controller automatically spawns a new torch at the start of a new game and places it into the Socket component.
 
 - `TorchHolderControllerComponent:getHasTorch()`
 - `TorchHolderControllerComponent:setHasTorch(boolean)`
 
-### TorchItemComponent (Component)
+## TorchItemComponent (Component)
 
 Makes an item a torch that burns until it runs out of fuel.
 
 - `TorchItemComponent:getFuel()`	Get fuel for torches and other light sources
 - `TorchItemComponent:setFuel(number)`	Set fuel for torches and other light sources
 
-### TricksterBrainComponent (BrainComponent)
+## TricksterBrainComponent (BrainComponent)
 
 Implements AI for the Trickster.
 
 - `TricksterBrainComponent:setState(state)`
 - `TricksterBrainComponent.onThinkSpecial(self)`
 
-### TurtleBrainComponent (BrainComponent)
+## TurtleBrainComponent (BrainComponent)
 
 Implements AI for Turtles.
 
-### TwigrootBrainComponent (BrainComponent)
+## TwigrootBrainComponent (BrainComponent)
 
 Implements AI for Twigroots.
 
-### UggardianBrainComponent (BrainComponent)
+## UggardianBrainComponent (BrainComponent)
 
 Implements AI for Uggardians.
 
-### UggardianFlamesComponent (Component)
+## UggardianFlamesComponent (Component)
 
 A flaming special effect for creatures. Requires Model component.
 
@@ -2503,7 +2503,7 @@ A flaming special effect for creatures. Requires Model component.
 - `UggardianFlamesComponent:setParticleSystem(string)`
 - `UggardianFlamesComponent:stop()`
 
-### UsableItemComponent (Component)
+## UsableItemComponent (Component)
 
 Makes an item Usable by right-clicking on it.
 
@@ -2519,11 +2519,11 @@ Makes an item Usable by right-clicking on it.
 - `UsableItemComponent:setSound(string)`	Set sound to play when item is consumed
 - `UsableItemComponent.onUseItem(self, champion)`
 
-### ViperRootBrainComponent (BrainComponent)
+## ViperRootBrainComponent (BrainComponent)
 
 Implements AI for Viper Roots.
 
-### WallTextComponent (Component)
+## WallTextComponent (Component)
 
 Displays a piece of text in the center of the screen when the object is clicked on. Requires Clickable component.
 
@@ -2534,7 +2534,7 @@ Displays a piece of text in the center of the screen when the object is clicked 
 - `WallTextComponent.onShowText(self)`
 - `WallTextComponent.onDismissText(self)`
 
-### WallTriggerComponent (Component)
+## WallTriggerComponent (Component)
 
 A wall trigger is activated when a projectile hits a wall in the wall trigger’s square. The wall needs to have same facing as the wall trigger. When activated the wall trigger fires its onActivate hooks and connectors.
 
@@ -2542,11 +2542,11 @@ A wall trigger is activated when a projectile hits a wall in the wall trigger’
 - `WallTriggerComponent:setEntityType(string)`
 - `WallTriggerComponent.onActivate(self)`
 
-### WargBrainComponent (BrainComponent)
+## WargBrainComponent (BrainComponent)
 
 Implements AI for the Wargs.
 
-### WaterSurfaceComponent (Component)
+## WaterSurfaceComponent (Component)
 
 Updates the reflection buffer of a water object. There should be max one water surface component per level. Water reflection is very heavy on performance so use it wisely.
 
@@ -2561,7 +2561,7 @@ Updates the reflection buffer of a water object. There should be max one water s
 - `WaterSurfaceComponent:setReflectionColor(vec)`
 - `WaterSurfaceComponent:setRefractionColor(vec)`
 
-### WaterSurfaceMeshComponent (Component)
+## WaterSurfaceMeshComponent (Component)
 
 Collects all water tiles in the level and creates an animated mesh covering all the tiles.
 
@@ -2571,14 +2571,14 @@ Collects all water tiles in the level and creates an animated mesh covering all 
 - `WaterSurfaceMeshComponent:setMaterial(string)`
 - `WaterSurfaceMeshComponent:setUnderwaterMaterial(string)`
 
-### WizardBrainComponent (BrainComponent)
+## WizardBrainComponent (BrainComponent)
 
 Implements AI for the Wizard.
 
-### XeloroidBrainComponent (BrainComponent)
+## XeloroidBrainComponent (BrainComponent)
 
 Implements AI for Xeloroids.
 
-### ZarchtonBrainComponent (BrainComponent)
+## ZarchtonBrainComponent (BrainComponent)
 
 Implements AI for Zarchtons.
