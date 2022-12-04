@@ -185,6 +185,7 @@ Refer to the tutorials for more detailed examples on how to use the material des
 The Lua functions and methods described here can be accessed from a script entity and typed on the console.
 
 In addition the following standard Lua functions can be used:
+
 - tonumber
 - tostring
 - type
@@ -235,64 +236,75 @@ Some special objects have no direct representation of them in the dungeon. For e
 
 ### Global Functions
 
-- `print(…)`
+#### `print(…)`
 
 Prints all arguments to the console.
 
-- `iff(cond, a, b)`
+#### `iff(cond, a, b)`
 
 Returns a if cond is true, otherwise returns b.
 
-- `vec(x, y, z, w)`
+#### `vec(x, y, z, w)`
 
 Returns a new vector. All components are optional and default to zero.
 
-- `getForward(direction)`
+#### `getForward(direction)`
 
 Converts direction, a number between 0 and 3 corresponding to a compass direction, to delta-x and delta-y values.
 
-- `getDirection(dx, dy)`
-- `toLocal(ox, oy, facing, x, y)`
-- `delayedCall(receiver, delay, msg)`
-- `spawn(object, level, x, y, facing, elevation, [id])`
+#### `getDirection(dx, dy)`
+
+#### `toLocal(ox, oy, facing, x, y)`
+
+#### `delayedCall(receiver, delay, msg)`
+
+#### `spawn(object, level, x, y, facing, elevation, [id])`
 
 Spawns a new object at given position on a dungeon level where x and y specify the x- and y-coordinates on the map and level is a level index. facing must be a number between 0 and 3 and it indicates the following directions: `0 = north`, `1 = east`, `2 = south`, `3 = west`. id parameter is optional. If given it must be an unique id in the context of the dungeon. If not given an unique id is automatically generated.
 
-- `findEntity(id)`
+#### `findEntity(id)`
 
 Returns an entity with given name or nil if no such entity exists.
 
-- `hudPrint(text)`
+#### `hudPrint(text)`
 
 Prints a line of text to the text area at the bottom of the screen.
 
-- `setMouseItem(item)`
+#### `setMouseItem(item)`
 
 Sets the given item as mouse item, or destroys the mouse item if item is nil.
 
-- `getMouseItem()`
+#### `getMouseItem()`
 
 Returns the `mouse item`, the item attached to the mouse pointer. If there is no mouse item, nil is returned.
 
-- `playSound(sound)`
+#### `playSound(sound)`
 
 Plays a sound effect. sound must be a name of a built-in or custom sound effect.
 
-- `playSoundAt(sound, level, x, y)`
+#### `playSoundAt(sound, level, x, y)`
 
 Plays a sound effect at given position. sound must be a name of a built-in or custom sound effect.
 
-- `rollDamage(power)`
+#### `rollDamage(power)`
 
 Returns a random amount of damage for an attack with given power.
 
-- `damageTile(level, x, y, direction, elevation, flags, damageType, power)`
+#### `damageTile(level, x, y, direction, elevation, flags, damageType, power)`
 
-Damages all creatures including the party in a given tile. direction specifies the direction of the attack for projectiles or melee attacks (0=north, 1=east, 2=south, 3=west). damageType must be one of the following: `physical`, `fire`, `poison`, `cold`, `shock`. Damage is rolled individually for all creatures using the power as base value. See also DamageFlags.
+Damages all creatures including the party in a given tile. direction specifies the direction of the attack for projectiles or melee attacks (`0=north`, `1=east`, `2=south`, `3=west`).
 
-- `shootProjectile(projectile, level, x, y, direction, speed, gravity, velocityUp, offsetX, offsetY, offsetZ, attackPower, ignoreEntity, fragile, championOrdinal)`
+- `damageType` must be one of the following: `physical`, `fire`, `poison`, `cold`, `shock`.
 
-Shoots a projectile item. The parameters are:
+Damage is rolled individually for all creatures using the power as base value.
+
+See also DamageFlags.
+
+#### `shootProjectile(projectile, level, x, y, direction, speed, gravity, velocityUp, offsetX, offsetY, offsetZ, attackPower, ignoreEntity, fragile, championOrdinal)`
+
+Shoots a projectile item.
+
+The parameters are:
 
 - `projectile`: the name of the item to shoot.
 - `level,x,y`: the initial position of the projectile in a level.
@@ -310,18 +322,22 @@ Shoots a projectile item. The parameters are:
 
 The following functions can be used in dungeon’s init.lua script to define new assets.
 
-- `defineAnimationEvent(desc)`
+#### `defineAnimationEvent(desc)`
 
-Defines a new animation event. desc is a table with the following fields:
+Defines a new animation event.
+
+`desc` is a table with the following fields:
 
 - `animation`: the name of animation file to attach animation event to. The filename must end with `.fbx`
 - `event`: the animation event string, e.g. `footstep` or `attack`.
 - `frame`: (optional) a frame number in the animation to attach the event to (one frame equals 1/30th of a second).
 - `normalizedTime`: (optional) normalized time of the event in range 0-1 to be used instead of frame (0 = start of animation, 1 = end of animation).
 
-- `defineObject(desc)`
+#### `defineObject(desc)`
 
-Defines a new entity type or replaces an existing definition. desc is a table with the following fields:
+Defines a new entity type or replaces an existing definition.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the object to define or replace.
 - `baseObject`: (optional) the name of the base object definition to clone.
@@ -334,19 +350,24 @@ Defines a new entity type or replaces an existing definition. desc is a table wi
 - `automapTile`: (optional) automap tile type: `ground`, `grassy_ground`, `water`, `wall`, `rocky_wall`, `trees` or `chasm`.
 - `automapIcon`: (optional) icon index in automap icon sheet.
 
-The components field should contain a list of components to be added or replaced in the base object class. Each component has a class and a name. The name of a component is by default its class in lower case. Each component have the following fields:
+The components field should contain a list of components to be added or replaced in the base object class.
+Each component has a class and a name. The name of a component is by default its class in lower case.
+
+Each component have the following fields:
 
 - `class`: the class name of the component without the `Component` part. E.g. `Model`.
 - `name`: (optional) the name of the component. Convention is to use lower case names.
 - `enabled`: (optional) the initial enabled state of the component (default is true).
-- `xyz`: (optional) sets the xyz property of the component by calling setXyz() method of the component. Any setter that receives a single parameters can be called using this mechanism.
+- `xyz`: (optional) sets the xyz property of the component by calling `setXyz()` method of the component. Any setter that receives a single parameters can be called using this mechanism.
 - `onXyz`: (optional) adds the xyz hook to the component.
 
 See component classes for details on properties and hooks supported by various components.
 
-- `defineSound(desc)`
+#### `defineSound(desc)`
 
-Defines a new sound or replaces an existing sound definition. The samples used need to be 16bit 44100Hz .wav-files. desc is a table with the following fields:
+Defines a new sound or replaces an existing sound definition. The samples used need to be 16bit 44100Hz .wav-files.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the sound to define or replace.
 - `filename`: the filename of the sample in wave format. The filename must be a valid asset reference ending with `.wav`. Optionally the filename may be a table containing multiple filenames for random sound variations.
@@ -355,15 +376,17 @@ Defines a new sound or replaces an existing sound definition. The samples used n
 - `minDistance`: the minimum distance in squares for sound falloff. The sound plays at max volume if it is closer than min distance to the listener.
 - `maxDistance`: the maximum distance in squares for sound falloff. The sound is not audible after max distance.
 
-- `defineParticleSystem(desc)`
+#### `defineParticleSystem(desc)`
 
 Defines a new particle system or replaces an existing particle system definition.
-desc is a table with the following fields:
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the particle system to define or replace.
 - `emitters`: a table of emitter descriptors. See below.
 
 An emitter descriptor is a table which contains the parameters for a particle emitter.
+
 The following parameters are supported:
 
 - `emitterShape`: type of the emitter, either `BoxShape` (default) or `MeshShape`.
@@ -396,9 +419,11 @@ The following parameters are supported:
 - `clampToGroundPlane`: a boolean flag, if enabled particles collide against the ground.
 - `depthBias`: depth bias value in world space units.
 
-- `defineRace(desc)`
+#### `defineRace(desc)`
 
-Defines a new race or replaces an existing race definition. desc is a table with the following fields:
+Defines a new race or replaces an existing race definition.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the race to define or replace.
 - `uiName`: the name of the race displayed to the user.
@@ -406,19 +431,24 @@ Defines a new race or replaces an existing race definition. desc is a table with
 
 A champion automatically gains the trait with the same name as his race.
 
-- `defineCharClass(desc)`
+#### `defineCharClass(desc)`
 
-Defines a new character class or replaces an existing class definition. desc is a table with the following fields:
+Defines a new character class or replaces an existing class definition.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the race to define or replace.
 - `uiName`: the name of the race displayed to the user.
 - `traits`: (optional) list of extra traits provided by the character class.
 - `skillPoints`: (optional) number of skill points received at first level (default is 2).
+
 A champion automatically gains the trait with the same name as his character class.
 
-- `defineSkill(desc)`
+#### `defineSkill(desc)`
 
-Defines a new skill or replaces an existing skill definition. desc is a table with the following fields:
+Defines a new skill or replaces an existing skill definition.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the skill to define or replace.
 - `uiName`: the name of the skill displayed to the user.
@@ -427,22 +457,28 @@ Defines a new skill or replaces an existing skill definition. desc is a table wi
 - `iconAtlas`: (optional) filename of the icon atlas. Icons are 75×75 and the width and height of the atlas must be multiple of icon size.
 - `description`: textual description of the skill.
 - `gameEffect`: (optional) textual description of the game effect provided by the skill.
-- `traits`: (optional) a table of new traits gained when progressing in the skill. For example, { [3] = `pack_mule` }.
+- `traits`: (optional) a table of new traits gained when progressing in the skill. For example, ``{ [3] = `pack_mule` }``.
 - `onRecomputeStats(champion, skillLevel)`: (optional) a hook for modifying champion’s attributes based on skill level. champion:addStatModifier() can be called from inside the hook.
 - `onComputeAccuracy(champion, weapon, attack, attackType, skillLevel)`: (optional) a hook for modifying accuracy of an attack. The function should return an accuracy modifier.
 - `onComputeCritChance(champion, weapon, attack, attackType, skillLevel)`: (optional) a hook for modifying critical hit chance of an attack. The function should return a critical hit modifier.
 
-- `defineTrait(desc)`
+#### `defineTrait(desc)`
 
-Traits work almost exactly like skills except they are on/off rather than having a level. See defineSkill() for a list of supported fields. The following additional fields are supported for traits:
+Traits work almost exactly like skills except they are on/off rather than having a level.
+
+See `defineSkill()` for a list of supported fields.
+
+The following additional fields are supported for traits:
 
 - `charGen`: (optional) a boolean, if set the trait can be chosen at character creation.
 - `requiredRace`: (optional) the name of the race for racial traits.
 - `hidden`: (optional) a boolean, if set the trait is not shown in Traits tab.
 
-- `defineMaterial(desc)`
+#### `defineMaterial(desc)`
 
-Defines a new material or replaces an existing material definition. desc is a table with the following fields:
+Defines a new material or replaces an existing material definition.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the material to define or replace.
 - `shader`: (optional) name of the built-in shader.
@@ -458,12 +494,13 @@ Defines a new material or replaces an existing material definition. desc is a ta
 - `textureAddressMode`: (optional) texture addressing mode:`Wrap`, `Clamp`, `WrapU_ClampV_WrapW`, `ClampU_WrapV_WrapW`, `WrapU_ClampV_ClampW` or `ClampU_WrapV_ClampW`.
 - `glossiness`: (optional) the glossiness parameter for specular lighting. Typical values range between 1 and 100.
 - `depthBias`: (optional) depth bias value. It is recommended to set this always to zero.
-
 - `onUpdate(material, time)`: (optional) hook to be called every frame. It can be used to animate materials.
 
-- `defineSpell(desc)`
+#### `defineSpell(desc)`
 
-Defines a new spell or replaces an existing spell. desc is a table with the following fields:
+Defines a new spell or replaces an existing spell.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the spell to define.
 - `uiName`: the name shown to the user (e.g. in spell scrolls).
@@ -476,24 +513,62 @@ Defines a new spell or replaces an existing spell. desc is a table with the foll
 - `spellIcon`: index of the spell preview icon in rune panel.
 - `spellIconAtlas`: (optional) filename of the spell icon atlas. Spell icons are 50×50 and the width and height of the atlas must be multiple of icon size.
 - `description`: textual description of the spell.
-
 - `onCast(champion, x, y, direction, elevation, skillLevel)`: built-in spell function name or a custom spell function.
 
-Spell gestures are encoded into numeric values. Each digit in the number corresponds to a rune. The available runes are: 1 = Fire, 2 = Life, 3 = Air, 4 = Spirituality, 5 = Balance, 6 = Physicality, 7 = Earth, 8 = Death, 9 = Water. For example, 1236 would be the gesture of the Fireball spell.
+Spell gestures are encoded into numeric values.
+Each digit in the number corresponds to a rune.
 
-- `defineRecipe(desc)`
+The available runes are:
 
-Defines a new potion recipe or replases an existing recipe. desc is a table with the following fields:
+- 1 = Fire
+- 2 = Life
+- 3 = Air
+- 4 = Spirituality
+- 5 = Balance
+- 6 = Physicality
+- 7 = Earth
+- 8 = Death
+- 9 = Water
+
+```
++-----------+
+|  1  2  3  |
+|  4  5  6  |
+|  7  8  9  |
++-----------+
+```
+
+For example, `1236` would be the gesture of the Fireball spell.
+
+#### `defineRecipe(desc)`
+
+Defines a new potion recipe or replases an existing recipe.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the potion recipe to define or replace.
 - `level`: Alchemy skill level needed to craft the potion.
 - `ingredients`: a number describing the ingredients.
 
-Ingredients are encoded into numeric value. Each digit in the number corresponds to an herb. The available herbs are: 1 = Blooddrop Cap, 2 = Etherweed, 3 = Mudwort, 4 = Falconskyre, 5 = Blackmoss, 6 = Crystal Flower. For example, 115 would translate to a recipe with two Blooddrop Caps and one Blackmoss.
+Ingredients are encoded into numeric value.
+Each digit in the number corresponds to an herb.
 
-- `defineTile(desc)`
+The available herbs are:
 
-Defines a new tile for Dungeon Editor or replases an existing definition. desc is a table with the following fields:
+- 1 = Blooddrop Cap
+- 2 = Etherweed
+- 3 = Mudwort
+- 4 = Falconskyre
+- 5 = Blackmoss
+- 6 = Crystal Flower
+
+For example, `115` would translate to a recipe with two Blooddrop Caps and one Blackmoss.
+
+#### `defineTile(desc)`
+
+Defines a new tile for Dungeon Editor or replases an existing definition.
+
+`desc` is a table with the following fields:
 
 - `name`: the name of the tile to define or replace.
 - `editorIcon`: index of the icon in Dungeon Editor tile atlas.
@@ -515,14 +590,16 @@ Defines a new tile for Dungeon Editor or replases an existing definition. desc i
 - `automapTile`: (optional) the name of the automap tile: `ground`, `grassy_ground`, `water`, `wall`, `rocky_wall`, `trees` or `chasm`
 - `moveSound`: (optional) the name of sound played when the party walks on the tile.
 
-The tables referred above contain lists of objects and their probabilities that are used to randomly pick up pieces for generating the levels. At every odd table index there must be a valid object name. At every even table index there must be a number that indicates the relative probability of the object.
+The tables referred above contain lists of objects and their probabilities that are used to randomly pick up pieces for generating the levels.
+At every odd table index there must be a valid object name.
+At every even table index there must be a number that indicates the relative probability of the object.
 
 For example, the following would generate a wall drain approximately every 50th generated wall:
 
 ```
 wall = {
-    "dungeon_wall_01", 50,
-    "dungeon_wall_drain", 1,
+  "dungeon_wall_01", 50,
+  "dungeon_wall_drain", 1,
 }
 ```
 
