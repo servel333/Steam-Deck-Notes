@@ -74,6 +74,22 @@ party.party:getChampion(1):modifyBaseStat("vitality",  1)
 party.party:getChampion(1):modifyBaseStat("willpower", 1)
 ```
 
+## Create an item on the floor in front of you
+
+Make sure the space in front of you is empty.
+
+```lua
+spawn "wooden_box"
+```
+
+## Get the name of an item held in the mouse
+
+You can then use this name to `spawn` an item.
+
+```lua
+print( getMouseItem().go.name )
+```
+
 <!-- - - - - - - - - - - - - - - - - - - - - - - - - -->
 
 # Scripting Reference
