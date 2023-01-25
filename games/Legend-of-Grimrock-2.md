@@ -4,9 +4,9 @@
 # Console commands quick reference
 
 ```lua
-party:heal()
-party:getChampion(4):addSkillPoints(1) -- Gives one skill point to the bottom right champion.
-party:getChampion(2):addSkillPoints(-1) -- Removes one skill point from the top right champion.
+party.party:heal()
+party.party:getChampion(4):addSkillPoints(1) -- Gives one skill point to the bottom right champion.
+party.party:getChampion(2):addSkillPoints(-1) -- Removes one skill point from the top right champion.
 getMouseItem():setStackSize(100) -- Changes the count of the item held in the hand to 100.
 print( getMouseItem().go.name ) -- Print the name of the item that's held by the mouse.
 spawn( getMouseItem().go.name ) -- Spawn the item that's held by the mouse.
