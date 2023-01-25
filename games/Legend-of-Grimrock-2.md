@@ -1,4 +1,6 @@
 
+- [grimrock.net Scripting Reference](http://www.grimrock.net/modding/scripting-reference/) ([Local copy](./Legend-of-Grimrock-2/Scripting-Reference.md))
+
 # Console commands quick reference
 
 ## Heal party
