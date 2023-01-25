@@ -1,7 +1,7 @@
 Scripting Reference
 -------------------
 
-Source: [grimrock.net Scripting Reference](http://www.grimrock.net/modding/scripting-reference/) (Dead, [archive](https://web.archive.org/web/20220525100241/http://www.grimrock.net/modding/scripting-reference/))
+Source: [grimrock.net Scripting Reference](http://www.grimrock.net/modding/scripting-reference/) ([archive.org copy](https://web.archive.org/web/20220525100241/http://www.grimrock.net/modding/scripting-reference/))
 
 <!--
 Contents
