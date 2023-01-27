@@ -28,28 +28,28 @@ Ground level
 
 |       |       |       |       |
 | :---: | :---: | :---: | :---: |
-| [Sacred Grove](#Sacred Grove) | [Mournland](#Mournland) | [Urhold Keep](#Urhold Keep) | [Siren Deeps](#Siren Deeps) |
-| [Crystal Lake](#Crystal Lake) | [Herder Moors](#Herder Moors) | [Veilwoods](#Veilwoods) | [Cheeseburg](#Cheeseburg) |
-| [Parimid](#Parimid) | [Wetlands](#Wetlands) | [Glades Domini](#Glades Domini) | [Skullcoast](#Skullcoast) |
-| [Burning Sands](#Burning Sands) | [Ruins of Naar](#Ruins of Naar) | [Hammerhills](#Hammerhills) | [Frozen Highlands](#Frozen Highlands) |
+| [Sacred Grove](#Sacred-Grove) | [Mournland](#Mournland) | [Urhold Keep](#Urhold-Keep) | [Siren Deeps](#Siren-Deeps) |
+| [Crystal Lake](#Crystal-Lake) | [Herder Moors](#Herder-Moors) | [Veilwoods](#Veilwoods) | [Cheeseburg](#Cheeseburg) |
+| [Parimid](#Parimid) | [Wetlands](#Wetlands) | [Glades Domini](#Glades-Domini) | [Skullcoast](#Skullcoast) |
+| [Burning Sands](#Burning-Sands) | [Ruins of Naar](#Ruins-of-Naar) | [Hammerhills](#Hammerhills) | [Frozen Highlands](#Frozen-Highlands) |
 
 Underground level -1
 
 |       |       |       |       |
 | :---: | :---: | :---: | :---: |
 | (Unknown) | [Necropolis](#Necropolis) | (Unknown) | (Unknown) |
-| [Elemental Temple](#Elemental Temple) | [Lichen Caves](#Lichen Caves) | [Rootling Hollows](#Rootling Hollows) | [Burrows](#Burrows) |
-| (Unknown) | [Abandoned Dungeon](#Abandoned Dungeon) | [Garnodot Dungeon](#Garnodot Dungeon) | [Old Tunnels](#Old Tunnels) |
-| [Seven Tombs](#Seven Tombs) | [Lower Naar](#Lower Naar) | [Howling Caves](#Howling Caves) | [Brokepick Mines](#Brokepick Mines) |
+| [Elemental Temple](#Elemental-Temple) | [Lichen Caves](#Lichen-Caves) | [Rootling Hollows](#Rootling-Hollows) | [Burrows](#Burrows) |
+| (Unknown) | [Abandoned Dungeon](#Abandoned-Dungeon) | [Garnodot Dungeon](#Garnodot-Dungeon) | [Old Tunnels](#Old-Tunnels) |
+| [Seven Tombs](#Seven-Tombs) | [Lower Naar](#Lower-Naar) | [Howling Caves](#Howling-Caves) | [Brokepick Mines](#Brokepick-Mines) |
 
 Underground level -2
 
 |       |       |       |       |
 | :---: | :---: | :---: | :---: |
 | (Empty) | (Empty) | (Empty) | (Empty) |
-| [Temple Subways](#Temple Subways) | (Empty) | (Empty) | (Empty) |
+| [Temple Subways](#Temple-Subways) | (Empty) | (Empty) | (Empty) |
 | (Empty) | [Scriptorium](#Scriptorium) | (Empty) | (Empty) |
-| [Tomb of Oadan](#Tomb of Oadan) | (Empty) | (Empty) | (Empty) |
+| [Tomb of Oadan](#Tomb-of-Oadan) | (Empty) | (Empty) | (Empty) |
 
 Other areas
 
