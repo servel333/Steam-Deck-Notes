@@ -22,64 +22,83 @@ The player starts on the east side of the [Wetlands](#Wetlands)
 
 ## Items
 
-
 ## Maps
 
 Ground level
 
-|                     |                     |                     |                     |
-|        :---:        |        :---:        |        :---:        |        :---:        |
-| Sacred Grove        | Mournland           | Urhold Keep         | Siren Deeps         |
-| Crystal Lake        | Herder Moors        | Veilwoods           | Cheeseburg          |
-| Parimid             | Wetlands            | Glades Domini       | Skullcoast          |
-| Burning Sands       | Ruins of Naar       | Hammerhills         | Frozen Highlands    |
+|       |       |       |       |
+| :---: | :---: | :---: | :---: |
+| [Sacred Grove](#Sacred Grove) | [Mournland](#Mournland) | [Urhold Keep](#Urhold Keep) | [Siren Deeps](#Siren Deeps) |
+| [Crystal Lake](#Crystal Lake) | [Herder Moors](#Herder Moors) | [Veilwoods](#Veilwoods) | [Cheeseburg](#Cheeseburg) |
+| [Parimid](#Parimid) | [Wetlands](#Wetlands) | [Glades Domini](#Glades Domini) | [Skullcoast](#Skullcoast) |
+| [Burning Sands](#Burning Sands) | [Ruins of Naar](#Ruins of Naar) | [Hammerhills](#Hammerhills) | [Frozen Highlands](#Frozen Highlands) |
 
 Underground level -1
 
-|                     |                     |                     |                     |
-|        :---:        |        :---:        |        :---:        |        :---:        |
-| (Unknown)           | Necropolis          | (Unknown)           | (Unknown)           |
-| Elemental Temple    | Lichen Caves        | Rootling Hollows    | Burrows             |
-| (Unknown)           | Abandoned Dungeon   | Garnodot Dungeon    | Old Tunnels         |
-| Seven Tombs         | Lower Naar          | Howling Caves       | Brokepick Mines     |
+|       |       |       |       |
+| :---: | :---: | :---: | :---: |
+| (Unknown) | [Necropolis](#Necropolis) | (Unknown) | (Unknown) |
+| [Elemental Temple](#Elemental Temple) | [Lichen Caves](#Lichen Caves) | [Rootling Hollows](#Rootling Hollows) | [Burrows](#Burrows) |
+| (Unknown) | [Abandoned Dungeon](#Abandoned Dungeon) | [Garnodot Dungeon](#Garnodot Dungeon) | [Old Tunnels](#Old Tunnels) |
+| [Seven Tombs](#Seven Tombs) | [Lower Naar](#Lower Naar) | [Howling Caves](#Howling Caves) | [Brokepick Mines](#Brokepick Mines) |
 
 Underground level -2
 
-|                     |                     |                     |                     |
-|        :---:        |        :---:        |        :---:        |        :---:        |
-| (Empty)             | (Empty)             | (Empty)             | (Empty)             |
-| Temple Subways      | (Empty)             | (Empty)             | (Empty)             |
-| (Empty)             | Scriptorium         | (Empty)             | (Empty)             |
-| Tomb of Oadan       | (Empty)             | (Empty)             | (Empty)             |
+|       |       |       |       |
+| :---: | :---: | :---: | :---: |
+| (Empty) | (Empty) | (Empty) | (Empty) |
+| [Temple Subways](#Temple Subways) | (Empty) | (Empty) | (Empty) |
+| (Empty) | [Scriptorium](#Scriptorium) | (Empty) | (Empty) |
+| [Tomb of Oadan](#Tomb of Oadan) | (Empty) | (Empty) | (Empty) |
+
+Other areas
+
+- [Outkeep](#Outkeep)
 
 ### Abandoned Dungeon
+Secrets: 22
 ### Brokepick Mines
+Secrets: 12
 ### Burning Sands
 ### Burrows
+Secrets: 13
 ### Cheeseburg
+Secrets: 11
 ### Crystal Lake
+Secrets: 13
 ### Elemental Temple
 ### Frozen Highlands
+Secrets: 8
 ### Garnodot Dungeon
 ### Glades Domini
+Secrets: 9
 ### Hammerhills
 ### Herder Moors
 ### Howling Caves
 ### Lichen Caves
+Secrets: 10
 ### Lower Naar
+Secrets: 9
 ### Mournland
 ### Necropolis
 ### Old Tunnels
+### Outkeep
+Secrets: 5
 ### Parimid
 ### Rootling Hollows
+Secrets: 8
 ### Ruins of Naar
+Secrets: 8
 ### Sacred Grove
 ### Scriptorium
 ### Seven Tombs
 ### Siren Deeps
 ### Skullcoast
+Secrets: 7
 ### Temple Subways
 ### Tomb of Oadan
 ### Urhold Keep
 ### Veilwoods
+Secrets: 7
 ### Wetlands
+Secrets: 9
