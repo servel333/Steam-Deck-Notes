@@ -51,9 +51,27 @@ Underground level -2
 | (Empty) | [Scriptorium](#Scriptorium) | (Empty) | (Empty) |
 | [Tomb of Oadan](#Tomb-of-Oadan) | (Empty) | (Empty) | (Empty) |
 
+Aboveground level 1
+
+|       |       |       |       |
+| :---: | :---: | :---: | :---: |
+| (Empty) | (Empty) | (Empty) | (Empty) |
+| (Empty) | (Empty) | (Empty) | (Empty) |
+| (Empty) | (Empty) | [Garnodat](#Garnodat) | [Old Lighthouse](#Old-Lighthouse) |
+| (Empty) | (Empty) | (Empty) | (Empty) |
+
+Aboveground level 2
+
+|       |       |       |       |
+| :---: | :---: | :---: | :---: |
+| (Empty) | (Empty) | (Empty) | (Empty) |
+| (Empty) | (Empty) | (Empty) | (Empty) |
+| (Empty) | (Empty) | Beleth's quarters | (Empty) |
+
 Other areas
 
 - [Outkeep](#Outkeep)
+- (Unknown)
 
 ### Abandoned Dungeon
 Secrets: 22
@@ -69,6 +87,7 @@ Secrets: 13
 ### Elemental Temple
 ### Frozen Highlands
 Secrets: 8
+### Garnodat
 ### Garnodot Dungeon
 ### Glades Domini
 Secrets: 9
@@ -81,6 +100,7 @@ Secrets: 10
 Secrets: 9
 ### Mournland
 ### Necropolis
+### Old Lighthouse
 ### Old Tunnels
 ### Outkeep
 Secrets: 5
