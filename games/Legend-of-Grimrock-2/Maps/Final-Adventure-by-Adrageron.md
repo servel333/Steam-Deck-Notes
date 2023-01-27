@@ -52,34 +52,34 @@ Underground level -2
 | (Empty)             | Scriptorium         | (Empty)             | (Empty)             |
 | Tomb of Oadan       | (Empty)             | (Empty)             | (Empty)             |
 
-### Sacred Grove
-### Mournland
-### Urhold Keep
-### Siren Deeps
-### Crystal Lake
-### Herder Moors
-### Veilwoods
-### Cheeseburg
-### Parimid
-### Wetlands
-### Glades Domini
-### Skullcoast
-### Burning Sands
-### Ruins of Naar
-### Hammerhills
-### Frozen Highlands
-### Necropolis
-### Elemental Temple
-### Lichen Caves
-### Rootling Hollows
-### Burrows
 ### Abandoned Dungeon
-### Garnodot Dungeon
-### Old Tunnels
-### Seven Tombs
-### Lower Naar
-### Howling Caves
 ### Brokepick Mines
-### Temple Subways
+### Burning Sands
+### Burrows
+### Cheeseburg
+### Crystal Lake
+### Elemental Temple
+### Frozen Highlands
+### Garnodot Dungeon
+### Glades Domini
+### Hammerhills
+### Herder Moors
+### Howling Caves
+### Lichen Caves
+### Lower Naar
+### Mournland
+### Necropolis
+### Old Tunnels
+### Parimid
+### Rootling Hollows
+### Ruins of Naar
+### Sacred Grove
 ### Scriptorium
+### Seven Tombs
+### Siren Deeps
+### Skullcoast
+### Temple Subways
 ### Tomb of Oadan
+### Urhold Keep
+### Veilwoods
+### Wetlands
