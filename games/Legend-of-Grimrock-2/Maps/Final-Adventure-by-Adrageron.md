@@ -27,12 +27,30 @@ The player starts on the east side of the [Wetlands](#Wetlands)
 
 Ground level
 
-|       |       |       |       |
-| :---: | :---: | :---: | :---: |
-| Sacred Grove | Mournland | Urhold Keep | Siren Deeps |
-| Crystal Lake | Herder Moors | Veilwoods | Cheeseburg |
-| Parimid | Wetlands | Glades Domini | Skullcoast |
-| Burning Sands | Ruins of Naar | Hammerhills | Frozen Highlands |
+|                     |                     |                     |                     |
+|        :---:        |        :---:        |        :---:        |        :---:        |
+| Sacred Grove        | Mournland           | Urhold Keep         | Siren Deeps         |
+| Crystal Lake        | Herder Moors        | Veilwoods           | Cheeseburg          |
+| Parimid             | Wetlands            | Glades Domini       | Skullcoast          |
+| Burning Sands       | Ruins of Naar       | Hammerhills         | Frozen Highlands    |
+
+Underground level -1
+
+|                     |                     |                     |                     |
+|        :---:        |        :---:        |        :---:        |        :---:        |
+| (Unknown)           | Necropolis          | (Unknown)           | (Unknown)           |
+| Elemental Temple    | Lichen Caves        | Rootling Hollows    | Burrows             |
+| (Unknown)           | Abandoned Dungeon   | Garnodot Dungeon    | Old Tunnels         |
+| Seven Tombs         | Lower Naar          | Howling Caves       | Brokepick Mines     |
+
+Underground level -2
+
+|                     |                     |                     |                     |
+|        :---:        |        :---:        |        :---:        |        :---:        |
+| (Empty)             | (Empty)             | (Empty)             | (Empty)             |
+| Temple Subways      | (Empty)             | (Empty)             | (Empty)             |
+| (Empty)             | Scriptorium         | (Empty)             | (Empty)             |
+| Tomb of Oadan       | (Empty)             | (Empty)             | (Empty)             |
 
 ### Sacred Grove
 ### Mournland
@@ -50,16 +68,18 @@ Ground level
 ### Ruins of Naar
 ### Hammerhills
 ### Frozen Highlands
-
-
-
-
-
-
-
-
-
-
-
-
-
+### Necropolis
+### Elemental Temple
+### Lichen Caves
+### Rootling Hollows
+### Burrows
+### Abandoned Dungeon
+### Garnodot Dungeon
+### Old Tunnels
+### Seven Tombs
+### Lower Naar
+### Howling Caves
+### Brokepick Mines
+### Temple Subways
+### Scriptorium
+### Tomb of Oadan
