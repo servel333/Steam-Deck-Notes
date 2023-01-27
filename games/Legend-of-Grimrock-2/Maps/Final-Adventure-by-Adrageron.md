@@ -66,7 +66,7 @@ Aboveground level 2
 | :---: | :---: | :---: | :---: |
 | (Empty) | (Empty) | (Empty) | (Empty) |
 | (Empty) | (Empty) | (Empty) | (Empty) |
-| (Empty) | (Empty) | Beleth's quarters | (Empty) |
+| (Empty) | (Empty) | [Beleth's quarters](#Beleths-quarters) | (Empty) |
 
 Other areas
 
@@ -75,6 +75,7 @@ Other areas
 
 ### Abandoned Dungeon
 Secrets: 22
+### Beleth's quarters
 ### Brokepick Mines
 Secrets: 12
 ### Burning Sands
