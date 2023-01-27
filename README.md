@@ -47,6 +47,7 @@ Steam Deck ([Official site](https://www.steamdeck.com/en/)<sup>⤤</sup>, [Steam
 - [Legend of Grimrock 2](/games/Legend-of-Grimrock-2.md) (App ID [251730](https://steamdb.info/app/251730/)<sup>⤤</sup>)
 - [Monster Hunter Rise](/games/Monster-Hunter-Rise.md) (App ID [1446780](https://steamdb.info/app/1446780/)<sup>⤤</sup>)
 - Monster Hunter Rise: Sunbreak DLC (App ID [1880360](https://steamdb.info/app/1880360/)<sup>⤤</sup>)
+- [Roblox](/games/Roblox.md) (Non-steam game)
 
 ## Other
 
