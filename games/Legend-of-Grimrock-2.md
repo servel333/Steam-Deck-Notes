@@ -28,6 +28,8 @@ party.party:getChampion(4)  // Bottom Right champion
 x-1 W + E x+1
       S
      y+1
+
+Elevation +1 up, -1 down
 ```
 
 - Note, as long as you have unspent skill points, your champion portraits will show "level up". If you add more skill points than you can spend, this message will be visible forever.
