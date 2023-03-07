@@ -8,6 +8,7 @@ party.party:heal()
 party.party:getChampion(4):addSkillPoints(1) -- Gives one skill point to the bottom right champion.
 party.party:getChampion(2):addSkillPoints(-1) -- Removes one skill point from the top right champion.
 getMouseItem():setStackSize(100) -- Changes the count of the item held in the hand to 100.
+getMouseItem():setStackable(true) --
 print( getMouseItem().go.name ) -- Print the name of the item that's held by the mouse.
 spawn( getMouseItem().go.name ) -- Spawn the item that's held by the mouse.
 party:setPosition(party.x+1, party.y+1, party.facing, party.elevation, party.level) -- Teleports party one space south and one space east.
