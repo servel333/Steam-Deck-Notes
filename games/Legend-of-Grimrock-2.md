@@ -15,11 +15,78 @@ spawn( getMouseItem().go.name ) -- Spawn the item that's held by the mouse.
 party:setPosition(party.x+1, party.y+1, party.facing, party.elevation, party.level) -- Teleports party one space south and one space east.
 ```
 
-```
+```lua
 party.party:getChampion(1)  // Top Left champion
 party.party:getChampion(2)  // Top Right champion
 party.party:getChampion(3)  // Bottom Left champion
 party.party:getChampion(4)  // Bottom Right champion
+```
+
+- Shortcut functions
+
+The following code loads shortcut functions.
+
+`--` and following characters are comments and don't need to be typed into the Grimrock console.
+
+Once a function is created by typing the `function` line below, it will be available until the game is closed.
+
+```lua
+
+-- SSS = Set Stack Size
+function sss(count) getMouseItem():setStackSize(count) end
+
+-- Sets the count of the stack held in the mouse to 100
+sss(100)
+
+----------
+
+function setStackable(isStackable) getMouseItem():setStackable(isStackable) end
+
+-- Set the currently held item as stackable.
+-- This could be dangerous for certain items.
+-- Not recommended for notes/books/containers
+setStackable(true)
+
+----------
+
+-- Clone what is held in the cursor.
+-- This does not clone all properties. Cloning a note will produce a blank note, for example.
+-- CMI = Clone Mouse Item
+function cmi() spawn( getMouseItem().go.name ) end
+
+cm()
+
+----------
+
+-- Teleport north/south, east/west, up/down, or any combination relative to the players current location.
+function tp(x,y) party:setPosition(party.x + x, party.y + y, party.facing, party.elevation, party.level) end
+
+-- Teleport north 1 space
+tp(0,-1)
+
+-- Teleport south 1 space
+tp(0,1)
+
+-- Teleport east  1 space
+tp(1,0)
+
+-- Teleport west  1 space
+tp(-1,0)
+
+-- Teleports east and south 1 space
+tp(1,1)
+
+----------
+
+-- Teleport north/south, east/west, up/down, or any combination relative to the players current location.
+function tpe(x,y,e) party:setPosition(party.x + x, party.y + y, party.facing, party.elevation + e, party.level) end
+
+-- Teleport up   1 space
+tpe(0,0,1)
+
+-- Teleport down 1 space
+tpe(0,0,-1)
+
 ```
 
 - party:setPosition X and Y coordinates reference.
