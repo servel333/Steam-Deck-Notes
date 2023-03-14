@@ -1,5 +1,6 @@
 
 - [grimrock.net Scripting Reference](http://www.grimrock.net/modding/scripting-reference/) ([Local copy](./Legend-of-Grimrock-2/Scripting-Reference.md))
+- [Item List](./Legend-of-Grimrock-2/Item-List.md)
 
 # Console commands quick reference
 
