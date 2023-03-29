@@ -28,11 +28,11 @@ party.party:getChampion(4)  // Bottom Right champion
 ```
 
 ```lua
--- Add skill points to all characters.
-for i = 1,4 do party.party:getChampion(i):addSkillPoints(200) end
-
+-- Increase all base stats of all champions.
 for i = 1,4 do for attr in ipairs({"strength", "dexterity", "vitality", "willpower"}) do party.party:getChampion(i):modifyBaseStat(attr, 1000) end end
 
+-- Add skill points to all champions.
+for i = 1,4 do party.party:getChampion(i):addSkillPoints(200) end
 ```
 
 - Shortcut functions
