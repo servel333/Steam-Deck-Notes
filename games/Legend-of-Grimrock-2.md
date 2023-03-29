@@ -8,6 +8,10 @@
 party.party:heal()
 party.party:getChampion(4):addSkillPoints(1) -- Gives one skill point to the bottom right champion.
 party.party:getChampion(2):addSkillPoints(-1) -- Removes one skill point from the top right champion.
+party.party:getChampion(1):modifyBaseStat("strength",  1)
+party.party:getChampion(1):modifyBaseStat("dexterity", 1)
+party.party:getChampion(1):modifyBaseStat("vitality",  1)
+party.party:getChampion(1):modifyBaseStat("willpower", 1)
 getMouseItem():setStackSize(100) -- Changes the count of the item held in the hand to 100.
 getMouseItem():setStackable(true) -- Sets if the item held in the mouse is stackable
 getMouseItem():setWeight(1) -- Set weight of item held in mouse
@@ -21,6 +25,14 @@ party.party:getChampion(1)  // Top Left champion
 party.party:getChampion(2)  // Top Right champion
 party.party:getChampion(3)  // Bottom Left champion
 party.party:getChampion(4)  // Bottom Right champion
+```
+
+```lua
+-- Add skill points to all characters.
+for i = 1,4 do party.party:getChampion(i):addSkillPoints(200) end
+
+for i = 1,4 do for attr in ipairs({"strength", "dexterity", "vitality", "willpower"}) do party.party:getChampion(i):modifyBaseStat(attr, 1000) end end
+
 ```
 
 - Shortcut functions
