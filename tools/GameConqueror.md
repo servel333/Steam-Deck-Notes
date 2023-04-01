@@ -25,6 +25,7 @@ WIP
 
 - [Reddit: Is it possible to run a program requiring Linux password in gaming mode?](https://www.reddit.com/r/steamdeck_linux/comments/w9utc4/is_it_possible_to_run_a_program_requiring_linux/)
 - [How to (reasonably) safely allow running specific commands as root without a password](https://www.reddit.com/r/SteamDeck/comments/11zu3hl/how_to_reasonably_safely_allow_running_specific/)
+- [Sudoers Manual](https://www.sudo.ws/docs/man/1.7.10/sudoers.man/)
 
 <!--
 (This does not appear to work)
@@ -36,7 +37,7 @@ Cmnd_Alias GAMECONQUEROR = /usr/bin/gameconqueror
 deck ALL=(ALL) NOPASSWD:GAMECONQUEROR
 ```
 
-<!-- -->
+<!-- - ->
 
 ### Cleanup
 
